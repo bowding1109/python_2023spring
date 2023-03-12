@@ -32,13 +32,13 @@ statusBar2 = Label(root,text="",fg="black",bg="white",anchor=W,relief="sunken",b
 
 statusBar2.grid(row=10,column=0,columnspan=3,sticky=W+E+S)
 
-sframe1 = ScrolledFrame(root)
-sframe1.grid()
+# sframe1 = ScrolledFrame(root)
+# sframe1.grid()
 
-sframe1.bind_arrow_keys(root)
-sframe1.bind_scroll_wheel(root)
+# sframe1.bind_arrow_keys(root)
+# sframe1.bind_scroll_wheel(root)
 
-inner_frame = sframe1.display_widget(Frame)
+# inner_frame = sframe1.display_widget(Frame)
 
 # btn1 = Button(inner_frame,text = "1",height = 5)
 # btn2 = Button(inner_frame,text = "2",height = 5)
