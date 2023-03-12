@@ -10,7 +10,7 @@ root.geometry("1000x300+500+150")
 
 def show():
     text = (checkbtnVal1.get())+" "+(checkbtnVal2.get())+" "+(checkbtnVal3.get())
-    # statusBar2["text"] = text
+    statusBar2["text"] = text
 
 checkbtnVal1 = StringVar()
 checkbtnVal2 = StringVar()
@@ -28,17 +28,17 @@ checkbtn2.grid(row=1,column=1,sticky=W)
 checkbtn3 = Checkbutton(root,text="轉機2次以上",variable = checkbtnVal3,onvalue="轉機2次以上",offvalue="",fg="pink",command=show)
 checkbtn3.grid(row=1,column=2,sticky=W)
 
-# statusBar2 = Label(root,text="",fg="black",bg="white",anchor=W,relief="sunken",bd=2)
+statusBar2 = Label(root,text="",fg="black",bg="white",anchor=W,relief="sunken",bd=2)
 
-# statusBar2.grid(row=10,column=0,columnspan=3,sticky=W+E+S)
+statusBar2.grid(row=10,column=0,columnspan=3,sticky=W+E+S)
 
-# sframe1 = ScrolledFrame(root)
-# sframe1.grid()
+sframe1 = ScrolledFrame(root)
+sframe1.grid()
 
-# sframe1.bind_arrow_keys(root)
-# sframe1.bind_scroll_wheel(root)
+sframe1.bind_arrow_keys(root)
+sframe1.bind_scroll_wheel(root)
 
-# inner_frame = sframe1.display_widget(Frame)
+inner_frame = sframe1.display_widget(Frame)
 
 # btn1 = Button(inner_frame,text = "1",height = 5)
 # btn2 = Button(inner_frame,text = "2",height = 5)

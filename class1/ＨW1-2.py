@@ -16,4 +16,5 @@ table.column("#1",anchor=CENTER)
 table.column("#2",anchor=CENTER)
 table.column("#3",anchor=CENTER)
 table.pack()
+
 root.mainloop()
