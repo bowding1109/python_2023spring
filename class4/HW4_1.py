@@ -54,18 +54,19 @@ def getValue(a):
     r = int(color_scale1.get())
     g = int(color_scale2.get())
     b = int(color_scale3.get())
-    #數值
+    #數值轉換為16進位
     hex = "#{:02x}{:02x}{:02x}".format(r,g,b)
+    #分別設定Label 文字內容
     title1label1["text"]="R: "+str(color_scale1.get())
     title1label2["text"]="G  "+str(color_scale2.get())
     title1label3["text"]= "B: "+str(color_scale3.get())
 
     statusBar1["bg"] = hex
     statusBar1["text"] = hex
-
+#建立標題Label
 title1label = Label(root, text="選擇顏色(R,G,B)")
 title1label.grid(row = 0,column= 0,columnspan= 2, sticky=W)
-
+#建立Scale元件
 color_scale1 = Scale(root, from_=0, to=225, orient="horizontal", resolution=1,length=300,showvalue=True,command=getValue)
 color_scale1.grid(row=2,column=0,columnspan=3)
 

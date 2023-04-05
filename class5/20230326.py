@@ -8,14 +8,14 @@ from email.mime.multipart import MIMEMultipart
 #Python專案中的電子郵件內容完成後，接下來就要設定Gmmail的SMTP伺服器來寄送
 import smtplib
 #建立MIMEText物件
-text = MIMEText("Demo-using python send emai-我是一封由Python程式碼建立的信")
+text = MIMEText("我很包歉")
 #用read_bytes是為了以bytes的形式讀取圖片內容
-image = MIMEImage(Path("/Users/silvia/Documents/python_2023spring/logo_tree (1).png").read_bytes())
+image = MIMEImage(Path("/Users/silvia/Documents/python_2023spring/maxresdefault.jpeg").read_bytes())
 
 content = MIMEMultipart()#建立 MIMEMultipart
-content["subject"] = "ㄔㄐㄐ"#郵件標題
+content["subject"] = "包歉"#郵件標題
 content["from"] = "bowding99@gmail.com"#寄件者
-content["to"] = "lj10218@stu.kcislk.ntpc.edu.tw"#收件者
+content["to"] = "xuchengrong3@gmail.com"#收件者
 #郵件內容使用MIMEMultipart物件的attach方法(Method)進行設定
 content.attach(text)#郵件內容
 content.attach(image)#郵件圖片內容
