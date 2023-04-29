@@ -16,16 +16,16 @@
 # #呼叫行為
 # amy.shout("我討厭看牙醫")
 
-class Person:
-    state = "heathy"#類別屬性:屬性類別的屬性，而不是物件
-#實體方法
-    def getCold(self):
-        self.__class__.state = "sick"
+# class Person:
+#     state = "heathy"#類別屬性:屬性類別的屬性，而不是物件
+# #實體方法
+#     def getCold(self):
+#         self.__class__.state = "sick"
 
-print("Origin: I'm "+Person.state+".")
-any = Person()
-any.getCold()
-print("After: I'm "+Person.state+".")
+# print("Origin: I'm "+Person.state+".")
+# any = Person()
+# any.getCold()
+# print("After: I'm "+Person.state+".")
 
 # class Person:
 #     # 築構式

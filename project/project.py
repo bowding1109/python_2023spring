@@ -3,9 +3,272 @@ from tkinter import messagebox
 import tkinter.ttk as ttk
 from PIL import Image, ImageTk
 
+#超基本設定
+root = Tk()
+
+root.title("KubeTech Shop")
+root.geometry("880x650")
 
 
 
+B2 = Toplevel(root)
+B2.title("KubeTech Shop2")
+B2.geometry("880x650")
+
+
+
+
+#任天堂頁面
+
+#基本設定
+def nitendo():
+    A1 = Toplevel(root)
+    A1.title("KubeTech Shop1")
+    A1.geometry("880x650")
+    def add(numlabel,pricelabel):
+        numlabel["text"] = int(numlabel["text"])+1
+        price = int(pricelabel["text"].split(".")[1].replace(",","").strip())
+        total = int(totalval.get().split(":")[1].replace("元","").strip())
+        totalval.set("共消費: "+str(total+price)+" 元")
+    def minus(numlabel,pricelabel):
+        if int(numlabel["text"])>0:
+            numlabel["text"] = int(numlabel["text"])-1
+            price = int(pricelabel["text"].split(".")[1].replace(",","").strip())
+            total = int(totalval.get().split(":")[1].replace("元","").strip())
+            totalval.set("共消費: "+str(total-price)+" 元")
+        else:
+            messagebox.showwarning("showarnng","The number of products can\'t be below 0.")
+
+    #row 0
+    titleimgA = Image.open("/Users/silvia/Documents/Python_2022Autumn/class10/image/logo_tree.png")
+    titleimgA = titleimgA.resize((32,32))
+    titleimgA = ImageTk.PhotoImage(titleimgA)
+    titlelabelA = Label(A1, image = titleimgA,width = 32,height = 32).grid(column = 0,row = 0,sticky=W)
+
+    sofabuttonA = Button(A1,font = ("Inter",18), text="熱門遊戲", fg = "#1E1E1E",bg = "#ECE8E7", width = 10,pady=2,)
+    sofabuttonA.grid(column=1,row=0,sticky = E+W,padx=5)
+
+    beddingbuttonA = Button(A1,font = ("Inter",18), text="折價區", fg = "#1E1E1E",bg = "#ECE8E7", width = 5,pady=2)
+    beddingbuttonA.grid(column=2,row=0,sticky = E+W,padx=5)
+
+    kitchenwarebuttonA = Button(A1,font = ("Inter",18), text="周邊商品", fg = "#1E1E1E",bg = "#ECE8E7", width = 5,pady=2,)
+    kitchenwarebuttonA.grid(column=3,row=0,sticky = E+W,padx=5)
+
+    loginbuttonA = Button(A1,font = ("Inter",18), text="會員登入/註冊", fg = "#1E1E1E",bg = "#ECE8E7",padx=5,)
+    loginbuttonA.grid(column=7,row=0,sticky = E+W,padx=5)
+
+    #row=1
+    bannerimgA = Image.open("/Users/silvia/Documents/python_2023spring/project/img/topic2.png")
+    bannerimgA = bannerimgA.resize((852,298))
+    bannerimgA = ImageTk.PhotoImage(bannerimgA)
+    bannerlabelA = Label(A1, image = bannerimgA).grid(column = 0, row= 1,columnspan=8,sticky=W,padx = 5)
+
+    #row=2
+    sofa1imgA = Image.open("/Users/silvia/Documents/python_2023spring/project/img/switch_game4.png")
+    sofa1imgA = sofa1imgA.resize((200,200))
+    sofa1imgA = ImageTk.PhotoImage(sofa1imgA)
+    sofa1labelA = Label(A1, image = sofa1imgA).grid(column = 0,row = 2,columnspan=2,sticky=W,padx = 5)
+
+    sofa2imgA = Image.open("/Users/silvia/Documents/python_2023spring/project/img/switch_game5.png")
+    sofa2imgA = sofa2imgA.resize((200,200))
+    sofa2imgA = ImageTk.PhotoImage(sofa2imgA)
+    sofa2labelA = Label(A1, image = sofa2imgA).grid(column = 2,row = 2,columnspan=2,sticky=W,padx = 5)
+
+    sofa3imgA = Image.open("/Users/silvia/Documents/python_2023spring/project/img/switch_game6.png")
+    sofa3imgA = sofa3imgA.resize((200,200))
+    sofa3imgA = ImageTk.PhotoImage(sofa3imgA)
+    sofa3labelA = Label(A1, image = sofa3imgA).grid(column = 4,row = 2,columnspan=2,sticky=W,padx = 5)
+
+    sofa4imgA = Image.open("/Users/silvia/Documents/python_2023spring/project/img/switch_game7.png")
+    sofa4imgA = sofa4imgA.resize((200,200))
+    sofa4imgA = ImageTk.PhotoImage(sofa4imgA)
+    sofa4labelA = Label(A1, image = sofa4imgA).grid(column = 6,row = 2,columnspan=2,sticky=W,padx = 5)
+
+    #row=3
+    productname1A = Label(A1,font = ("Inter",11), text="馬力歐賽車8 豪華版", fg = "#000000",bg = "#ECE8E7")
+    productname1A.grid(column=0,row=3,columnspan=2 ,padx=5)
+
+    productname2A = Label(A1,font = ("Inter",11), text="瑪利歐高爾夫 超級衝衝", fg = "#000000",bg = "#ECE8E7")
+    productname2A.grid(column=2,row=3,columnspan=2,padx=5)
+
+    productname3A = Label(A1,font = ("Inter",11), text="瑪利歐兄弟U 豪華版", fg = "#000000",bg = "#ECE8E7")
+    productname3A.grid(column=4,row=3,columnspan=2,padx=5)
+
+    productname4A = Label(A1,font = ("Inter",11), text="寶可夢 朱", fg = "#000000",bg = "#ECE8E7")
+    productname4A.grid(column=6,row=3,columnspan=2,padx=5)
+
+    #row=4
+    product1price1A = Label(A1,font = ("Inter",10), text="NT.0,846", fg = "#000000",bg = "#ECE8E7")
+    product1price1A.grid(column=0,row=4 ,padx=5,sticky=W)
+
+    product2price1A = Label(A1,font = ("Inter",10), text="NT.0,329", fg = "#000000",bg = "#ECE8E7")
+    product2price1A.grid(column=2,row=4 ,padx=5, sticky=W)
+
+    product3price1A = Label(A1,font = ("Inter",10), text="NT.0,985", fg = "#000000",bg = "#ECE8E7")
+    product3price1A.grid(column=4,row=4 ,padx=5, sticky=W)
+
+    product4price1A = Label(A1,font = ("Inter",10), text="NT.0,359", fg = "#000000",bg = "#ECE8E7")
+    product4price1A.grid(column=6,row=4 ,padx=5, sticky=W)
+
+    productnumberlabel1A = Label(A1,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
+    productnumberlabel1A.grid(column=1,row=4)
+
+    productnumberlabel2A = Label(A1,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
+    productnumberlabel2A.grid(column=3,row=4)
+
+    productnumberlabel3A = Label(A1,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
+    productnumberlabel3A.grid(column=5,row=4)
+
+    productnumberlabel4A = Label(A1,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
+    productnumberlabel4A.grid(column=7,row=4)
+
+    addbutton1A = Button(A1,font = ("Inter",10), text="+", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda: add(productnumberlabel1A,product1price1A))
+    addbutton1A.grid(column=1,row=4 ,sticky=E)
+
+    addbutton2A = Button(A1,font = ("Inter",10), text="+", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda: add(productnumberlabel2A,product2price1A))
+    addbutton2A.grid(column=3,row=4 ,sticky=E)
+
+    addbutton3A = Button(A1,font = ("Inter",10), text="+", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda: add(productnumberlabel3A,product3price1A))
+    addbutton3A.grid(column=5,row=4 ,sticky=E)
+
+    addbutton4A = Button(A1,font = ("Inter",10), text="+", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda: add(productnumberlabel4A,product4price1A))
+    addbutton4A.grid(column=7,row=4 ,sticky=E)
+
+    minusbutton1A = Button(A1,font = ("Inter",10), text="-", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda:minus(productnumberlabel1A,product1price1A))
+    minusbutton1A.grid(column=1,row=4 ,sticky=W)
+
+    minusbutton2A = Button(A1,font = ("Inter",10), text="-", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda:minus(productnumberlabel2A,product2price1A))
+    minusbutton2A.grid(column=3,row=4 ,sticky=W)
+
+    minusbutton3A = Button(A1,font = ("Inter",10), text="-", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda:minus(productnumberlabel3A,product3price1A))
+    minusbutton3A.grid(column=5,row=4 ,sticky=W)
+
+    minusbutton4A = Button(A1,font = ("Inter",10), text="-", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda:minus(productnumberlabel4A,product4price1A))
+    minusbutton4A.grid(column=7,row=4 ,sticky=W)
+    A1.mainloop()
+
+    #PlatStation頁面
+
+#基本設定
+
+#row 0
+def nitendo():
+    titleimg2 = Image.open("/Users/silvia/Documents/Python_2022Autumn/class10/image/logo_tree.png")
+    titleimg2 = titleimg2.resize((32,32))
+    titleimg2 = ImageTk.PhotoImage(titleimg2)
+    titlelabel2 = Label(B2, image = titleimg,width = 32,height = 32).grid(column = 0,row = 0,sticky=W)
+
+    beddingbutton2 = Button(B2,font = ("Inter",18), text="熱門遊戲", fg = "#1E1E1E",bg = "#ECE8E7", width = 5,pady=2)
+    beddingbutton2.grid(column=2,row=0,sticky = E+W,padx=5)
+
+    sofabutton2 = Button(B2,font = ("Inter",18), text="折價區", fg = "#1E1E1E",bg = "#ECE8E7", width = 10,pady=2)
+    sofabutton2.grid(column=1,row=0,sticky = E+W,padx=5)
+
+    kitchenwarebutton2 = Button(B2,font = ("Inter",18), text="周邊商品", fg = "#1E1E1E",bg = "#ECE8E7", width = 5,pady=2,)
+    kitchenwarebutton2.grid(column=3,row=0,sticky = E+W,padx=5)
+
+    loginbutton2 = Button(B2,font = ("Inter",18), text="會員登入/註冊", fg = "#1E1E1E",bg = "#ECE8E7",padx=5,)
+    loginbutton2.grid(column=7,row=0,sticky = E+W,padx=5)
+
+    #row=1
+    bannerimg2 = Image.open("/Users/silvia/Documents/python_2023spring/project/img/topic3.png")
+    bannerimg2= bannerimg2.resize((852,298))
+    bannerimg2 = ImageTk.PhotoImage(bannerimg2)
+    bannerlabel2 = Label(B2, image = bannerimg2).grid(column = 0, row= 1,columnspan=8,sticky=W,padx = 5)
+
+    #row=2
+    sofa1img2 = Image.open("/Users/silvia/Documents/python_2023spring/project/img/switch_game1.png")
+    sofa1img2 = sofa1img2.resize((200,200))
+    sofa1img2 = ImageTk.PhotoImage(sofa1img2)
+    sofa1label2 = Label(B2, image = sofa1img2).grid(column = 0,row = 2,columnspan=2,sticky=W,padx = 5)
+
+    sofa2img2 = Image.open("/Users/silvia/Documents/python_2023spring/project/img/PlayStation_game2.png")
+    sofa2img2 = sofa2img2.resize((200,200))
+    sofa2img2 = ImageTk.PhotoImage(sofa2img2)
+    sofa2label2 = Label(B2, image = sofa2img2).grid(column = 2,row = 2,columnspan=2,sticky=W,padx = 5)
+
+    sofa3img2 = Image.open("/Users/silvia/Documents/python_2023spring/project/img/switch_game2.png")
+    sofa3img2 = sofa3img2.resize((200,200))
+    sofa3img2 = ImageTk.PhotoImage(sofa3img2)
+    sofa3label2 = Label(B2, image = sofa3img2).grid(column = 4,row = 2,columnspan=2,sticky=W,padx = 5)
+
+    sofa4img2 = Image.open("//Users/silvia/Documents/python_2023spring/project/img/PlayStation_game1.png")
+    sofa4img2 = sofa4img2.resize((200,200))
+    sofa4img2 = ImageTk.PhotoImage(sofa4img2)
+    sofa4label2 = Label(B2, image = sofa4img2).grid(column = 6,row = 2,columnspan=2,sticky=W,padx = 5)
+
+    #row=3
+    productname12 = Label(B2,font = ("Inter",11), text="星之卡比 豪華版 Wili", fg = "#000000",bg = "#ECE8E7")
+    productname12.grid(column=0,row=3,columnspan=2 ,padx=5)
+
+    productname22 = Label(B2,font = ("Inter",11), text="霍格華滋的傳承", fg = "#000000",bg = "#ECE8E7")
+    productname22.grid(column=2,row=3,columnspan=2,padx=5)
+
+    productname32 = Label(B2,font = ("Inter",11), text="世界遊戲大全51", fg = "#000000",bg = "#ECE8E7")
+    productname32.grid(column=4,row=3,columnspan=2,padx=5)
+
+    productname42 = Label(B2,font = ("Inter",11), text="SPIDER-MAN Miles Morales", fg = "#000000",bg = "#ECE8E7")
+    productname42.grid(column=6,row=3,columnspan=2,padx=5)
+
+    #row=4
+    product1price22 = Label(B2,font = ("Inter",10), text="NT.0,846", fg = "#000000",bg = "#ECE8E7")
+    product1price22.grid(column=0,row=4 ,padx=5,sticky=W)
+
+    product2price22 = Label(B2,font = ("Inter",10), text="NT.0,329", fg = "#000000",bg = "#ECE8E7")
+    product2price22.grid(column=2,row=4 ,padx=5, sticky=W)
+
+    product3price22 = Label(B2,font = ("Inter",10), text="NT.0,985", fg = "#000000",bg = "#ECE8E7")
+    product3price22.grid(column=4,row=4 ,padx=5, sticky=W)
+
+    product4price22 = Label(B2,font = ("Inter",10), text="NT.0,359", fg = "#000000",bg = "#ECE8E7")
+    product4price22.grid(column=6,row=4 ,padx=5, sticky=W)
+
+    productnumberlabel12 = Label(B2,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
+    productnumberlabel12.grid(column=1,row=4)
+
+    productnumberlabel22 = Label(B2,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
+    productnumberlabel22.grid(column=3,row=4)
+
+    productnumberlabel32 = Label(B2,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
+    productnumberlabel32.grid(column=5,row=4)
+
+    productnumberlabel42 = Label(B2,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
+    productnumberlabel42.grid(column=7,row=4)
+
+    addbutton12 = Button(B2,font = ("Inter",10), text="+", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda: add(productnumberlabel12,product1price22))
+    addbutton12.grid(column=1,row=4 ,sticky=E)
+
+    addbutton22 = Button(B2,font = ("Inter",10), text="+", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda: add(productnumberlabel22,product2price22))
+    addbutton22.grid(column=3,row=4 ,sticky=E)
+
+    addbutton32 = Button(B2,font = ("Inter",10), text="+", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda: add(productnumberlabel32,product3price22))
+    addbutton32.grid(column=5,row=4 ,sticky=E)
+
+    addbutton42 = Button(B2,font = ("Inter",10), text="+", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda: add(productnumberlabel42,product4price22))
+    addbutton42.grid(column=7,row=4 ,sticky=E)
+
+    minusbutton12 = Button(B2,font = ("Inter",10), text="-", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda:minus(productnumberlabel12,product1price22))
+    minusbutton12.grid(column=1,row=4 ,sticky=W)
+
+    minusbutton22 = Button(root,font = ("Inter",10), text="-", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda:minus(productnumberlabel22,product2price22))
+    minusbutton22.grid(column=3,row=4 ,sticky=W)
+
+    minusbutton32 = Button(B2,font = ("Inter",10), text="-", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda:minus(productnumberlabel32,product3price22))
+    minusbutton32.grid(column=5,row=4 ,sticky=W)
+
+    minusbutton42 = Button(B2,font = ("Inter",10), text="-", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda:minus(productnumberlabel42,product4price22))
+    minusbutton42.grid(column=7,row=4 ,sticky=W)
+    B2.mainloop()
+
+
+
+
+
+
+
+#主頁面
+
+#基本設定for title
 def showdetail():
     detailWindow = Toplevel(root)
     detailWindow.title("KubeTech Shop")
@@ -52,67 +315,59 @@ def minus(numlabel,pricelabel):
     else:
         messagebox.showwarning("showarnng","The number of products can\'t be below 0.")
 
-
-root = Tk()
-
-root.title("書店網站")
-
-root.geometry("880x650")
-#row = 0
+#row 0
 titleimg = Image.open("/Users/silvia/Documents/Python_2022Autumn/class10/image/logo_tree.png")
 titleimg = titleimg.resize((32,32))
 titleimg = ImageTk.PhotoImage(titleimg)
 titlelabel = Label(root, image = titleimg,width = 32,height = 32).grid(column = 0,row = 0,sticky=W)
 
-sofabutton = Button(root,font = ("Inter",18), text="小說", fg = "#1E1E1E",bg = "#ECE8E7", width = 5,pady=2,)
-sofabutton.grid(column=1,row=0,sticky = E+W,padx=5)
-
-beddingbutton = Button(root,font = ("Inter",18), text="漫畫", fg = "#1E1E1E",bg = "#ECE8E7", width = 5,pady=2)
+beddingbutton = Button(root,font = ("Inter",18), text="PlayStayion", fg = "#1E1E1E",bg = "#ECE8E7", width = 5,pady=2)
 beddingbutton.grid(column=2,row=0,sticky = E+W,padx=5)
 
-kitchenwarebutton = Button(root,font = ("Inter",18), text="雜誌", fg = "#1E1E1E",bg = "#ECE8E7", width = 5,pady=2,)
-kitchenwarebutton.grid(column=3,row=0,sticky = E+W,padx=5)
+sofabutton = Button(root,font = ("Inter",18), text="任天堂Nintendo", fg = "#1E1E1E",bg = "#ECE8E7", width = 10,pady=2,command= nitendo)
+sofabutton.grid(column=1,row=0,sticky = E+W,padx=5)
 
 loginbutton = Button(root,font = ("Inter",18), text="會員登入/註冊", fg = "#1E1E1E",bg = "#ECE8E7",padx=5,)
 loginbutton.grid(column=7,row=0,sticky = E+W,padx=5)
+
 #row=1
-bannerimg = Image.open("/Users/silvia/Documents/Python_2022Autumn/class10/封面.png")
+bannerimg = Image.open("/Users/silvia/Documents/python_2023spring/project/img/topic.png")
 bannerimg = bannerimg.resize((852,298))
 bannerimg = ImageTk.PhotoImage(bannerimg)
 bannerlabel = Label(root, image = bannerimg).grid(column = 0, row= 1,columnspan=8,sticky=W,padx = 5)
 
 #row=2
-sofa1img = Image.open("/Users/silvia/Documents/Python_2022Autumn/class10/漫畫.png")
-sofa1img = sofa1img.resize((202,200))
+sofa1img = Image.open("/Users/silvia/Documents/python_2023spring/project/img/switch_game1.png")
+sofa1img = sofa1img.resize((200,200))
 sofa1img = ImageTk.PhotoImage(sofa1img)
 sofa1label = Label(root, image = sofa1img).grid(column = 0,row = 2,columnspan=2,sticky=W,padx = 5)
 
-sofa2img = Image.open("/Users/silvia/Documents/Python_2022Autumn/class10/小說2.png")
-sofa2img = sofa2img.resize((202,200))
+sofa2img = Image.open("/Users/silvia/Documents/python_2023spring/project/img/PlayStation_game2.png")
+sofa2img = sofa2img.resize((200,200))
 sofa2img = ImageTk.PhotoImage(sofa2img)
 sofa2label = Label(root, image = sofa2img).grid(column = 2,row = 2,columnspan=2,sticky=W,padx = 5)
 
-sofa3img = Image.open("/Users/silvia/Documents/Python_2022Autumn/class10/雜誌.png")
-sofa3img = sofa3img.resize((202,200))
+sofa3img = Image.open("/Users/silvia/Documents/python_2023spring/project/img/switch_game2.png")
+sofa3img = sofa3img.resize((200,200))
 sofa3img = ImageTk.PhotoImage(sofa3img)
 sofa3label = Label(root, image = sofa3img).grid(column = 4,row = 2,columnspan=2,sticky=W,padx = 5)
 
-sofa4img = Image.open("/Users/silvia/Documents/Python_2022Autumn/class10/小說.png")
-sofa4img = sofa4img.resize((202,200))
+sofa4img = Image.open("//Users/silvia/Documents/python_2023spring/project/img/PlayStation_game1.png")
+sofa4img = sofa4img.resize((200,200))
 sofa4img = ImageTk.PhotoImage(sofa4img)
 sofa4label = Label(root, image = sofa4img).grid(column = 6,row = 2,columnspan=2,sticky=W,padx = 5)
 
 #row=3
-productname1 = Label(root,font = ("Inter",11), text="SPY×FAMILY 間諜家家酒【1-9集】", fg = "#000000",bg = "#ECE8E7")
+productname1 = Label(root,font = ("Inter",11), text="星之卡比 豪華版 Wili", fg = "#000000",bg = "#ECE8E7")
 productname1.grid(column=0,row=3,columnspan=2 ,padx=5)
 
-productname2 = Label(root,font = ("Inter",11), text="你要好好的", fg = "#000000",bg = "#ECE8E7")
+productname2 = Label(root,font = ("Inter",11), text="霍格華滋的傳承", fg = "#000000",bg = "#ECE8E7")
 productname2.grid(column=2,row=3,columnspan=2,padx=5)
 
-productname3 = Label(root,font = ("Inter",11), text="少年牛頓雜誌 11月號/2022 第218期", fg = "#000000",bg = "#ECE8E7")
+productname3 = Label(root,font = ("Inter",11), text="世界遊戲大全51", fg = "#000000",bg = "#ECE8E7")
 productname3.grid(column=4,row=3,columnspan=2,padx=5)
 
-productname4 = Label(root,font = ("Inter",11), text="紅樓夢", fg = "#000000",bg = "#ECE8E7")
+productname4 = Label(root,font = ("Inter",11), text="SPIDER-MAN Miles Morales", fg = "#000000",bg = "#ECE8E7")
 productname4.grid(column=6,row=3,columnspan=2,padx=5)
 
 #row=4
@@ -186,4 +441,43 @@ checkoutbutton.grid(row=5, column = 7, sticky = E+S, padx = 5, pady =1 )
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 root.mainloop()
+
