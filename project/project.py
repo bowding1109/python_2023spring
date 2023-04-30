@@ -7,13 +7,11 @@ from PIL import Image, ImageTk
 root = Tk()
 
 root.title("KubeTech Shop")
-root.geometry("880x650")
+root.geometry("950x750")
 
 
 
-B2 = Toplevel(root)
-B2.title("KubeTech Shop2")
-B2.geometry("880x650")
+
 
 
 
@@ -24,20 +22,7 @@ B2.geometry("880x650")
 def nitendo():
     A1 = Toplevel(root)
     A1.title("KubeTech Shop1")
-    A1.geometry("880x650")
-    def add(numlabel,pricelabel):
-        numlabel["text"] = int(numlabel["text"])+1
-        price = int(pricelabel["text"].split(".")[1].replace(",","").strip())
-        total = int(totalval.get().split(":")[1].replace("元","").strip())
-        totalval.set("共消費: "+str(total+price)+" 元")
-    def minus(numlabel,pricelabel):
-        if int(numlabel["text"])>0:
-            numlabel["text"] = int(numlabel["text"])-1
-            price = int(pricelabel["text"].split(".")[1].replace(",","").strip())
-            total = int(totalval.get().split(":")[1].replace("元","").strip())
-            totalval.set("共消費: "+str(total-price)+" 元")
-        else:
-            messagebox.showwarning("showarnng","The number of products can\'t be below 0.")
+    A1.geometry("950x750")
 
     #row 0
     titleimgA = Image.open("/Users/silvia/Documents/Python_2022Autumn/class10/image/logo_tree.png")
@@ -58,29 +43,29 @@ def nitendo():
     loginbuttonA.grid(column=7,row=0,sticky = E+W,padx=5)
 
     #row=1
-    bannerimgA = Image.open("/Users/silvia/Documents/python_2023spring/project/img/topic2.png")
-    bannerimgA = bannerimgA.resize((852,298))
+    bannerimgA = Image.open("./project/img/topic2.png")
+    bannerimgA = bannerimgA.resize((900,298))
     bannerimgA = ImageTk.PhotoImage(bannerimgA)
     bannerlabelA = Label(A1, image = bannerimgA).grid(column = 0, row= 1,columnspan=8,sticky=W,padx = 5)
 
     #row=2
-    sofa1imgA = Image.open("/Users/silvia/Documents/python_2023spring/project/img/switch_game4.png")
-    sofa1imgA = sofa1imgA.resize((200,200))
+    sofa1imgA = Image.open("./project/img/switch_game4.png")
+    sofa1imgA = sofa1imgA.resize((220,290))
     sofa1imgA = ImageTk.PhotoImage(sofa1imgA)
     sofa1labelA = Label(A1, image = sofa1imgA).grid(column = 0,row = 2,columnspan=2,sticky=W,padx = 5)
 
-    sofa2imgA = Image.open("/Users/silvia/Documents/python_2023spring/project/img/switch_game5.png")
-    sofa2imgA = sofa2imgA.resize((200,200))
+    sofa2imgA = Image.open("./project/img/switch_game5.png")
+    sofa2imgA = sofa2imgA.resize((220,290))
     sofa2imgA = ImageTk.PhotoImage(sofa2imgA)
     sofa2labelA = Label(A1, image = sofa2imgA).grid(column = 2,row = 2,columnspan=2,sticky=W,padx = 5)
 
-    sofa3imgA = Image.open("/Users/silvia/Documents/python_2023spring/project/img/switch_game6.png")
-    sofa3imgA = sofa3imgA.resize((200,200))
+    sofa3imgA = Image.open("./project/img/switch_game6.png")
+    sofa3imgA = sofa3imgA.resize((220,290))
     sofa3imgA = ImageTk.PhotoImage(sofa3imgA)
     sofa3labelA = Label(A1, image = sofa3imgA).grid(column = 4,row = 2,columnspan=2,sticky=W,padx = 5)
 
-    sofa4imgA = Image.open("/Users/silvia/Documents/python_2023spring/project/img/switch_game7.png")
-    sofa4imgA = sofa4imgA.resize((200,200))
+    sofa4imgA = Image.open("./project/img/switch_game7.png")
+    sofa4imgA = sofa4imgA.resize((220,290))
     sofa4imgA = ImageTk.PhotoImage(sofa4imgA)
     sofa4labelA = Label(A1, image = sofa4imgA).grid(column = 6,row = 2,columnspan=2,sticky=W,padx = 5)
 
@@ -110,16 +95,16 @@ def nitendo():
     product4price1A = Label(A1,font = ("Inter",10), text="NT.0,359", fg = "#000000",bg = "#ECE8E7")
     product4price1A.grid(column=6,row=4 ,padx=5, sticky=W)
 
-    productnumberlabel1A = Label(A1,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
+    productnumberlabel1A = Label(A1,width = 10,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
     productnumberlabel1A.grid(column=1,row=4)
 
-    productnumberlabel2A = Label(A1,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
+    productnumberlabel2A = Label(A1,width = 10,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
     productnumberlabel2A.grid(column=3,row=4)
 
-    productnumberlabel3A = Label(A1,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
+    productnumberlabel3A = Label(A1,width = 10,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
     productnumberlabel3A.grid(column=5,row=4)
 
-    productnumberlabel4A = Label(A1,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
+    productnumberlabel4A = Label(A1,width = 10,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
     productnumberlabel4A.grid(column=7,row=4)
 
     addbutton1A = Button(A1,font = ("Inter",10), text="+", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda: add(productnumberlabel1A,product1price1A))
@@ -145,14 +130,45 @@ def nitendo():
 
     minusbutton4A = Button(A1,font = ("Inter",10), text="-", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda:minus(productnumberlabel4A,product4price1A))
     minusbutton4A.grid(column=7,row=4 ,sticky=W)
+
+
+    ShoppingCartA = Image.open("/Users/silvia/Documents/Python_2022Autumn/class10/image/Shopping Cart.png")
+    ShoppingCartA = ShoppingCartA.resize((30,30))
+    ShoppingCartA = ImageTk.PhotoImage(ShoppingCartA)
+    CartlabelA = Label(A1, image = ShoppingCartA,width = 30,height = 30)
+    CartlabelA.grid(column = 5,row = 5,sticky=E+S)
+
+    totalvalA = StringVar()
+    totalvalA.set("共消費:0元")
+    totallabelA = Label(A1,textvariable=totalval,font=("Inter",18),fg="#000000")
+    totallabelA.grid(row = 5, column= 6,columnspan= 2, sticky = W+S)
+
+    checkoutbuttonA = Button(A1,font = ("Inter",10), text="結帳", fg = "#1E1E1E",bg = "#E7E2E2")
+    checkoutbuttonA.grid(row=5, column = 7, sticky = E+S, padx = 5, pady =1 )
     A1.mainloop()
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     #PlatStation頁面
 
 #基本設定
 
 #row 0
-def nitendo():
+def playstation():
+    B2 = Toplevel(root)
+    B2.title("KubeTech Shop2")
+    B2.geometry("950x750")
     titleimg2 = Image.open("/Users/silvia/Documents/Python_2022Autumn/class10/image/logo_tree.png")
     titleimg2 = titleimg2.resize((32,32))
     titleimg2 = ImageTk.PhotoImage(titleimg2)
@@ -171,44 +187,44 @@ def nitendo():
     loginbutton2.grid(column=7,row=0,sticky = E+W,padx=5)
 
     #row=1
-    bannerimg2 = Image.open("/Users/silvia/Documents/python_2023spring/project/img/topic3.png")
-    bannerimg2= bannerimg2.resize((852,298))
+    bannerimg2 = Image.open("./project/img/topic3.png")
+    bannerimg2= bannerimg2.resize((900,298))
     bannerimg2 = ImageTk.PhotoImage(bannerimg2)
     bannerlabel2 = Label(B2, image = bannerimg2).grid(column = 0, row= 1,columnspan=8,sticky=W,padx = 5)
 
     #row=2
-    sofa1img2 = Image.open("/Users/silvia/Documents/python_2023spring/project/img/switch_game1.png")
-    sofa1img2 = sofa1img2.resize((200,200))
+    sofa1img2 = Image.open("./project/img/switch_game1.png")
+    sofa1img2 = sofa1img2.resize((220,290))
     sofa1img2 = ImageTk.PhotoImage(sofa1img2)
     sofa1label2 = Label(B2, image = sofa1img2).grid(column = 0,row = 2,columnspan=2,sticky=W,padx = 5)
 
-    sofa2img2 = Image.open("/Users/silvia/Documents/python_2023spring/project/img/PlayStation_game2.png")
-    sofa2img2 = sofa2img2.resize((200,200))
+    sofa2img2 = Image.open("./project/img/PlayStation_game2.png")
+    sofa2img2 = sofa2img2.resize((220,290))
     sofa2img2 = ImageTk.PhotoImage(sofa2img2)
     sofa2label2 = Label(B2, image = sofa2img2).grid(column = 2,row = 2,columnspan=2,sticky=W,padx = 5)
 
-    sofa3img2 = Image.open("/Users/silvia/Documents/python_2023spring/project/img/switch_game2.png")
-    sofa3img2 = sofa3img2.resize((200,200))
+    sofa3img2 = Image.open("./project/img/switch_game2.png")
+    sofa3img2 = sofa3img2.resize((220,290))
     sofa3img2 = ImageTk.PhotoImage(sofa3img2)
     sofa3label2 = Label(B2, image = sofa3img2).grid(column = 4,row = 2,columnspan=2,sticky=W,padx = 5)
 
-    sofa4img2 = Image.open("//Users/silvia/Documents/python_2023spring/project/img/PlayStation_game1.png")
-    sofa4img2 = sofa4img2.resize((200,200))
+    sofa4img2 = Image.open("/./project/img/PlayStation_game1.png")
+    sofa4img2 = sofa4img2.resize((220,290))
     sofa4img2 = ImageTk.PhotoImage(sofa4img2)
     sofa4label2 = Label(B2, image = sofa4img2).grid(column = 6,row = 2,columnspan=2,sticky=W,padx = 5)
 
     #row=3
     productname12 = Label(B2,font = ("Inter",11), text="星之卡比 豪華版 Wili", fg = "#000000",bg = "#ECE8E7")
-    productname12.grid(column=0,row=3,columnspan=2 ,padx=5)
+    productname12.grid(column=0,row=3,columnspan=2)
 
     productname22 = Label(B2,font = ("Inter",11), text="霍格華滋的傳承", fg = "#000000",bg = "#ECE8E7")
-    productname22.grid(column=2,row=3,columnspan=2,padx=5)
+    productname22.grid(column=2,row=3,columnspan=2)
 
     productname32 = Label(B2,font = ("Inter",11), text="世界遊戲大全51", fg = "#000000",bg = "#ECE8E7")
-    productname32.grid(column=4,row=3,columnspan=2,padx=5)
+    productname32.grid(column=4,row=3,columnspan=2)
 
     productname42 = Label(B2,font = ("Inter",11), text="SPIDER-MAN Miles Morales", fg = "#000000",bg = "#ECE8E7")
-    productname42.grid(column=6,row=3,columnspan=2,padx=5)
+    productname42.grid(column=6,row=3,columnspan=2)
 
     #row=4
     product1price22 = Label(B2,font = ("Inter",10), text="NT.0,846", fg = "#000000",bg = "#ECE8E7")
@@ -223,42 +239,79 @@ def nitendo():
     product4price22 = Label(B2,font = ("Inter",10), text="NT.0,359", fg = "#000000",bg = "#ECE8E7")
     product4price22.grid(column=6,row=4 ,padx=5, sticky=W)
 
-    productnumberlabel12 = Label(B2,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
+    productnumberlabel12 = Label(B2,width = 3 ,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
     productnumberlabel12.grid(column=1,row=4)
 
-    productnumberlabel22 = Label(B2,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
+    productnumberlabel22 = Label(B2,width = 3,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
     productnumberlabel22.grid(column=3,row=4)
 
-    productnumberlabel32 = Label(B2,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
+    productnumberlabel32 = Label(B2,width = 3,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
     productnumberlabel32.grid(column=5,row=4)
 
-    productnumberlabel42 = Label(B2,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
+    productnumberlabel42 = Label(B2,width = 3,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
     productnumberlabel42.grid(column=7,row=4)
 
-    addbutton12 = Button(B2,font = ("Inter",10), text="+", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda: add(productnumberlabel12,product1price22))
+    addbutton12 = Button(B2,font = ("Inter",10),width = 2, text="+", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda: add(productnumberlabel12,product1price22))
     addbutton12.grid(column=1,row=4 ,sticky=E)
 
-    addbutton22 = Button(B2,font = ("Inter",10), text="+", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda: add(productnumberlabel22,product2price22))
+    addbutton22 = Button(B2,font = ("Inter",10),width = 2, text="+", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda: add(productnumberlabel22,product2price22))
     addbutton22.grid(column=3,row=4 ,sticky=E)
 
-    addbutton32 = Button(B2,font = ("Inter",10), text="+", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda: add(productnumberlabel32,product3price22))
+    addbutton32 = Button(B2,font = ("Inter",10),width = 2, text="+", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda: add(productnumberlabel32,product3price22))
     addbutton32.grid(column=5,row=4 ,sticky=E)
 
-    addbutton42 = Button(B2,font = ("Inter",10), text="+", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda: add(productnumberlabel42,product4price22))
+    addbutton42 = Button(B2,font = ("Inter",10),width = 2, text="+", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda: add(productnumberlabel42,product4price22))
     addbutton42.grid(column=7,row=4 ,sticky=E)
 
-    minusbutton12 = Button(B2,font = ("Inter",10), text="-", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda:minus(productnumberlabel12,product1price22))
+    minusbutton12 = Button(B2,font = ("Inter",10),width = 2, text="-", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda:minus(productnumberlabel12,product1price22))
     minusbutton12.grid(column=1,row=4 ,sticky=W)
 
-    minusbutton22 = Button(root,font = ("Inter",10), text="-", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda:minus(productnumberlabel22,product2price22))
+    minusbutton22 = Button(root,font = ("Inter",10),width = 2, text="-", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda:minus(productnumberlabel22,product2price22))
     minusbutton22.grid(column=3,row=4 ,sticky=W)
 
-    minusbutton32 = Button(B2,font = ("Inter",10), text="-", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda:minus(productnumberlabel32,product3price22))
+    minusbutton32 = Button(B2,font = ("Inter",10),width = 2, text="-", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda:minus(productnumberlabel32,product3price22))
     minusbutton32.grid(column=5,row=4 ,sticky=W)
 
-    minusbutton42 = Button(B2,font = ("Inter",10), text="-", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda:minus(productnumberlabel42,product4price22))
+    minusbutton42 = Button(B2,font = ("Inter",10),width = 2, text="-", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda:minus(productnumberlabel42,product4price22))
     minusbutton42.grid(column=7,row=4 ,sticky=W)
+
+
+    ShoppingCart2 = Image.open("/Users/silvia/Documents/Python_2022Autumn/class10/image/Shopping Cart.png")
+    ShoppingCart2 = ShoppingCart2.resize((30,30))
+    ShoppingCart2 = ImageTk.PhotoImage(ShoppingCart2)
+    Cartlabel2 = Label(B2, image = ShoppingCart2,width = 30,height = 30)
+    Cartlabel2.grid(column = 5,row = 5,sticky=E+S)
+
+    totalval2 = StringVar()
+    totalval2.set("共消費:0元")
+    totallabel2 = Label(B2,textvariable=totalval,font=("Inter",18),fg="#000000")
+    totallabel2.grid(row = 5, column= 6,columnspan= 2, sticky = W+S)
+
+    checkoutbutton2 = Button(B2,font = ("Inter",10), text="結帳", fg = "#1E1E1E",bg = "#E7E2E2")
+    checkoutbutton2.grid(row=5, column = 7, sticky = E+S, padx = 5, pady =1 )
     B2.mainloop()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -316,12 +369,12 @@ def minus(numlabel,pricelabel):
         messagebox.showwarning("showarnng","The number of products can\'t be below 0.")
 
 #row 0
-titleimg = Image.open("/Users/silvia/Documents/Python_2022Autumn/class10/image/logo_tree.png")
+titleimg = Image.open("project/img/logo_tree.png")
 titleimg = titleimg.resize((32,32))
 titleimg = ImageTk.PhotoImage(titleimg)
 titlelabel = Label(root, image = titleimg,width = 32,height = 32).grid(column = 0,row = 0,sticky=W)
 
-beddingbutton = Button(root,font = ("Inter",18), text="PlayStayion", fg = "#1E1E1E",bg = "#ECE8E7", width = 5,pady=2)
+beddingbutton = Button(root,font = ("Inter",18), text="PlayStayion", fg = "#1E1E1E",bg = "#ECE8E7", width = 5,pady=2,command = playstation)
 beddingbutton.grid(column=2,row=0,sticky = E+W,padx=5)
 
 sofabutton = Button(root,font = ("Inter",18), text="任天堂Nintendo", fg = "#1E1E1E",bg = "#ECE8E7", width = 10,pady=2,command= nitendo)
@@ -331,31 +384,31 @@ loginbutton = Button(root,font = ("Inter",18), text="會員登入/註冊", fg = 
 loginbutton.grid(column=7,row=0,sticky = E+W,padx=5)
 
 #row=1
-bannerimg = Image.open("/Users/silvia/Documents/python_2023spring/project/img/topic.png")
-bannerimg = bannerimg.resize((852,298))
+bannerimg = Image.open("./project/img/topic.png")
+bannerimg = bannerimg.resize((900,298))
 bannerimg = ImageTk.PhotoImage(bannerimg)
 bannerlabel = Label(root, image = bannerimg).grid(column = 0, row= 1,columnspan=8,sticky=W,padx = 5)
 
 #row=2
-sofa1img = Image.open("/Users/silvia/Documents/python_2023spring/project/img/switch_game1.png")
-sofa1img = sofa1img.resize((200,200))
+sofa1img = Image.open("./project/img/switch_game1.png")
+sofa1img = sofa1img.resize((220,290))
 sofa1img = ImageTk.PhotoImage(sofa1img)
-sofa1label = Label(root, image = sofa1img).grid(column = 0,row = 2,columnspan=2,sticky=W,padx = 5)
+sofa1label = Label(root, image = sofa1img).grid(column = 0,row = 2,columnspan=2)
 
-sofa2img = Image.open("/Users/silvia/Documents/python_2023spring/project/img/PlayStation_game2.png")
-sofa2img = sofa2img.resize((200,200))
+sofa2img = Image.open("./project/img/PlayStation_game2.png")
+sofa2img = sofa2img.resize((220,290))
 sofa2img = ImageTk.PhotoImage(sofa2img)
-sofa2label = Label(root, image = sofa2img).grid(column = 2,row = 2,columnspan=2,sticky=W,padx = 5)
+sofa2label = Label(root, image = sofa2img).grid(column = 2,row = 2,columnspan=2)
 
-sofa3img = Image.open("/Users/silvia/Documents/python_2023spring/project/img/switch_game2.png")
-sofa3img = sofa3img.resize((200,200))
+sofa3img = Image.open("./project/img/switch_game2.png")
+sofa3img = sofa3img.resize((220,290))
 sofa3img = ImageTk.PhotoImage(sofa3img)
-sofa3label = Label(root, image = sofa3img).grid(column = 4,row = 2,columnspan=2,sticky=W,padx = 5)
+sofa3label = Label(root, image = sofa3img).grid(column = 4,row = 2,columnspan=2)
 
-sofa4img = Image.open("//Users/silvia/Documents/python_2023spring/project/img/PlayStation_game1.png")
-sofa4img = sofa4img.resize((200,200))
+sofa4img = Image.open("./project/img/PlayStation_game1.png")
+sofa4img = sofa4img.resize((220,290))
 sofa4img = ImageTk.PhotoImage(sofa4img)
-sofa4label = Label(root, image = sofa4img).grid(column = 6,row = 2,columnspan=2,sticky=W,padx = 5)
+sofa4label = Label(root, image = sofa4img).grid(column = 6,row = 2,columnspan=2)
 
 #row=3
 productname1 = Label(root,font = ("Inter",11), text="星之卡比 豪華版 Wili", fg = "#000000",bg = "#ECE8E7")
@@ -372,27 +425,27 @@ productname4.grid(column=6,row=3,columnspan=2,padx=5)
 
 #row=4
 product1price = Label(root,font = ("Inter",10), text="NT.0,846", fg = "#000000",bg = "#ECE8E7")
-product1price.grid(column=0,row=4 ,padx=5,sticky=W)
+product1price.grid(column=0,row=4 ,sticky=W)
 
 product2price = Label(root,font = ("Inter",10), text="NT.0,329", fg = "#000000",bg = "#ECE8E7")
-product2price.grid(column=2,row=4 ,padx=5, sticky=W)
+product2price.grid(column=2,row=4 , sticky=W)
 
 product3price = Label(root,font = ("Inter",10), text="NT.0,985", fg = "#000000",bg = "#ECE8E7")
-product3price.grid(column=4,row=4 ,padx=5, sticky=W)
+product3price.grid(column=4,row=4 , sticky=W)
 
 product4price = Label(root,font = ("Inter",10), text="NT.0,359", fg = "#000000",bg = "#ECE8E7")
-product4price.grid(column=6,row=4 ,padx=5, sticky=W)
+product4price.grid(column=6,row=4 , sticky=W)
 
-productnumberlabel1 = Label(root,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
+productnumberlabel1 = Label(root, width=10,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
 productnumberlabel1.grid(column=1,row=4)
 
-productnumberlabel2 = Label(root,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
+productnumberlabel2 = Label(root,width=10,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
 productnumberlabel2.grid(column=3,row=4)
 
-productnumberlabel3 = Label(root,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
+productnumberlabel3 = Label(root,width=10,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
 productnumberlabel3.grid(column=5,row=4)
 
-productnumberlabel4 = Label(root,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
+productnumberlabel4 = Label(root,width=10,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
 productnumberlabel4.grid(column=7,row=4)
 
 addbutton1 = Button(root,font = ("Inter",10), text="+", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda: add(productnumberlabel1,product1price))
