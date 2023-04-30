@@ -12,7 +12,14 @@ root.geometry("950x750")
 
 
 
-
+def info(name,price,imgurl1,imurl2):
+    infoScreen = Toplevel(root)
+    infoScreen.geometry("200x500")
+    productNameLabel=Label(infoScreen,text=name)
+    productNameLabel.grid(row=0,column=0)
+    princeLabel=Label(infoScreen,text=price)
+    princeLabel.grid(row=1,column=0)
+    infoScreen.mainloop()
 
 
 
@@ -393,12 +400,12 @@ bannerlabel = Label(root, image = bannerimg).grid(column = 0, row= 1,columnspan=
 sofa1img = Image.open("./project/img/switch_game1.png")
 sofa1img = sofa1img.resize((220,290))
 sofa1img = ImageTk.PhotoImage(sofa1img)
-sofa1label = Label(root, image = sofa1img).grid(column = 0,row = 2,columnspan=2)
-
+sofa1label = Button(root, image = sofa1img,command=lambda:info("星之卡比 豪華版 Wili","NT.0,846"))
+sofa1label.grid(column = 0,row = 2,columnspan=2)
 sofa2img = Image.open("./project/img/PlayStation_game2.png")
 sofa2img = sofa2img.resize((220,290))
 sofa2img = ImageTk.PhotoImage(sofa2img)
-sofa2label = Label(root, image = sofa2img).grid(column = 2,row = 2,columnspan=2)
+sofa2label = Button(root, image = sofa2img,command=lambda:info("霍格華滋的傳承","NT.0,329")).grid(column = 2,row = 2,columnspan=2)
 
 sofa3img = Image.open("./project/img/switch_game2.png")
 sofa3img = sofa3img.resize((220,290))
@@ -478,7 +485,7 @@ root.rowconfigure(5,weight=2)
 detaillistbutton = Button(root,font = ("Inter",10), text="詳細清單", fg = "#1E1E1E",bg = "#E7E2E2",command = showdetail)
 detaillistbutton.grid(row=5, column = 0, sticky = W+S, padx = 5, pady =1 )
 
-ShoppingCart = Image.open("/Users/silvia/Documents/Python_2022Autumn/class10/image/Shopping Cart.png")
+ShoppingCart = Image.open("./project/img/Shopping Cart.png")
 ShoppingCart = ShoppingCart.resize((30,30))
 ShoppingCart = ImageTk.PhotoImage(ShoppingCart)
 Cartlabel = Label(root, image = ShoppingCart,width = 30,height = 30)
