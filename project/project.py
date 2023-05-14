@@ -2,20 +2,28 @@ from tkinter import *
 from tkinter import messagebox 
 import tkinter.ttk as ttk
 from PIL import Image, ImageTk
+from email.mime.text import MIMEText
+from email.mime.image import MIMEImage
+from pathlib import Path
+from email.mime.multipart import MIMEMultipart
+import smtplib
+
 
 #超基本設定
 root = Tk()
 
-root.title("KubeTech Shop")
+root.title("KubeTech Shop") 
 root.geometry("950x750")
 
-email = ""
-password = ""
+account_name = ""
+account_password = ""
+account_email = ""
 
-
-def loginpage():
-    global email
-    global password
+#註冊會員
+def register_page():
+    global account_name
+    global account_password
+    global account_email
     C1 = Toplevel(root)
     C1.title("KubeTech Shop1")
     C1.geometry("450x350")
@@ -48,25 +56,136 @@ def loginpage():
     #row8
     login_gmailpasswordBox = Entry(C1 ,width=30)
     login_gmailpasswordBox.grid(column=0,row = 8 )
+
+    login_gmailpassword_button = Button(C1,font = ("bold",20), text="發送註冊號", fg = "#1E1E1E",bg = "#E7E2E2", width = 7,pady=2,command = gmailtest)
+    login_gmailpassword_button.grid(column=1,row=8,padx=5,sticky =E)
+
     #row9
     login_button = Button(C1,font = ("bold",25), text="註冊", fg = "#1E1E1E",bg = "#ECE8E7", width = 5,pady=2)
     login_button.grid(column=0,row=9,padx=5,sticky =E)
 
-    email=login_nameBox.get()
-
-
-
+    account_name = login_nameBox.get()
+    account_password = login_passwordBox.get()
+    account_email = login_gmailpasswordBox.get()
 
     C1.mainloop()
 
-def info(name,price,imgurl1,imurl2):
-    infoScreen = Toplevel(root)
-    infoScreen.geometry("200x500")
-    productNameLabel=Label(infoScreen,text=name)
-    productNameLabel.grid(row=0,column=0)
-    princeLabel=Label(infoScreen,text=price)
-    princeLabel.grid(row=1,column=0)
-    infoScreen.mainloop()
+
+
+
+
+
+
+
+
+
+
+
+
+
+#會員登入
+def login_page():
+    D1 = Toplevel(root)
+    D1.title("KubeTech Shop1")
+    D1.geometry("450x350")
+    #row 0
+    space= Frame(D1, width=260, height= 50)
+    space.grid(column=0,row=0)
+    login_title = Label(D1,font = ("bold",30), text="歡迎登入", fg = "#000000",bg = "#ECE8E7")
+    login_title.grid(column=0,row=0 ,padx=5,sticky = E)
+    #row 1
+    login_name = Label(D1,font = ("Inter",20), text="請輸入您的帳號名字", fg = "#000000",bg = "#ECE8E7")
+    login_name.grid(column=0,row=1,sticky = W)
+    #row 2
+    login_nameBox = Entry(D1 ,width=30)
+    login_nameBox.grid(column=0,row = 2 )
+    #row3
+    login_secrict = Label(D1,font = ("Inter",20), text="請輸入您的帳號密碼", fg = "#000000",bg = "#ECE8E7")
+    login_secrict.grid(column=0,row=3,sticky = W)
+    #row4
+    login_passwordBox = Entry(D1 ,width=30)
+    login_passwordBox.grid(column=0,row = 4 )
+    #row5
+    login_button = Button(D1,font = ("bold",25), text="登入", fg = "#1E1E1E",bg = "#ECE8E7", width = 5,pady=2)
+    login_button.grid(column=0,row=5,padx=5,sticky =E)
+
+    D1.mainloop()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def gmailtest():
+    text = MIMEText("您的註冊號是12345")
+
+    content = MIMEMultipart()#
+    content["subject"] = "由 kube shop 發來的驗證碼"
+    content["from"] = "bowding99@gmail.com"
+    content["to"] = account_email
+
+    content.attach(text)
+
+
+    smtp = smtplib.SMTP(host="smtp.gmail.com", port="587")
+
+
+    with open("class5/password.txt","r") as f: 
+        mailToken = f.read()
+
+    with smtp: 
+        try:
+            smtp.ehlo()
+            smtp.starttls()
+            smtp.login("bowding99@gmail.com",mailToken)
+            smtp.send_message(content)
+            print("Email is Sended completely")
+            smtp.quit()
+        except Exception as e:
+            print("Error message: ", e)
+
+
+def hotgame():
+    D1 = Toplevel(root)
+    D1.title("KubeTech Shop1")
+    D1.geometry("650x550")
+
+    nitendo_topic1_button = Button(D1,font = ("Inter",18), text="熱門遊戲", fg = "#1E1E1E",bg = "#ECE8E7", width = 10,pady=2,command = hotgame)
+    nitendo_topic1_button.grid(column=1,row=0,sticky = E+W,padx=5)
+
+    nitendo_topic2_button = Button(D1,font = ("Inter",18), text="折價區", fg = "#1E1E1E",bg = "#ECE8E7", width = 5,pady=2)
+    nitendo_topic2_button.grid(column=2,row=0,sticky = E+W,padx=5)
+
+    nitendo_topic3_button = Button(D1,font = ("Inter",18), text="周邊商品", fg = "#1E1E1E",bg = "#ECE8E7", width = 5,pady=2,)
+    nitendo_topic3_button.grid(column=3,row=0,sticky = E+W,padx=5)
+
+    D1.mainloop()
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -85,7 +204,7 @@ def nitendo():
     nitendo_titleimg = Label(A1, image = nitendo_titleimg,width = 32,height = 32)
     nitendo_titleimg.grid(column = 0,row = 0,sticky=W)
 
-    nitendo_topic1_button = Button(A1,font = ("Inter",18), text="熱門遊戲", fg = "#1E1E1E",bg = "#ECE8E7", width = 10,pady=2,)
+    nitendo_topic1_button = Button(A1,font = ("Inter",18), text="熱門遊戲", fg = "#1E1E1E",bg = "#ECE8E7", width = 10,pady=2,command = hotgame)
     nitendo_topic1_button.grid(column=1,row=0,sticky = E+W,padx=5)
 
     nitendo_topic2_button = Button(A1,font = ("Inter",18), text="折價區", fg = "#1E1E1E",bg = "#ECE8E7", width = 5,pady=2)
@@ -94,8 +213,6 @@ def nitendo():
     nitendo_topic3_button = Button(A1,font = ("Inter",18), text="周邊商品", fg = "#1E1E1E",bg = "#ECE8E7", width = 5,pady=2,)
     nitendo_topic3_button.grid(column=3,row=0,sticky = E+W,padx=5)
 
-    loginbuttonA = Button(A1,font = ("Inter",18), text="會員登入/註冊", fg = "#1E1E1E",bg = "#ECE8E7",padx=5,command= loginpage)
-    loginbuttonA.grid(column=7,row=0,sticky = E+W,padx=5)
 
     #row=1
     nitendo_topic_img= Image.open("./project/img/topic2.png")
@@ -238,8 +355,6 @@ def playstation():
     playstation_topic3_button3 = Button(B2,font = ("Inter",18), text="周邊商品", fg = "#1E1E1E",bg = "#ECE8E7", width = 5,pady=2,)
     playstation_topic3_button3.grid(column=3,row=0,sticky = E+W,padx=5)
 
-    loginbutton2 = Button(B2,font = ("Inter",18), text="會員登入/註冊", fg = "#1E1E1E",bg = "#ECE8E7",padx=5,command= loginpage)
-    loginbutton2.grid(column=7,row=0,sticky = E+W,padx=5)
 
     #row=1
     playstation_topic_img = Image.open("./project/img/topic3.png")
@@ -369,11 +484,6 @@ def playstation():
 
 
 
-
-
-
-
-
 #主頁面
 
 #基本設定for title
@@ -435,8 +545,14 @@ mainpage_topicbutton1.grid(column=2,row=0,sticky = E+W,padx=5)
 mainpage_topicbutton2 = Button(root,font = ("Inter",18), text="任天堂Nintendo", fg = "#1E1E1E",bg = "#ECE8E7", width = 10,pady=2,command= nitendo)
 mainpage_topicbutton2.grid(column=1,row=0,sticky = E+W,padx=5)
 
-mainpage_loginbutton = Button(root,font = ("Inter",18), text="會員登入/註冊", fg = "#1E1E1E",bg = "#ECE8E7",padx=5,command= loginpage)
-mainpage_loginbutton.grid(column=7,row=0,sticky = E+W,padx=5)
+mainpage_loginbutton = Button(root,font = ("Inter",18), text="會員登入", fg = "#1E1E1E",bg = "#ECE8E7",padx=5,command= login_page)
+mainpage_loginbutton.grid(column=5,row=0,sticky = E+W,padx=5)
+
+mainpage_loginbutton2 = Button(root,font = ("Inter",18), text="會員註冊", fg = "#1E1E1E",bg = "#ECE8E7",padx=5,command= register_page)
+mainpage_loginbutton2.grid(column=6,row=0,sticky = E+W,padx=5)
+
+mainpage_loginbutton3 = Button(root,font = ("Inter",18), text="會員升級", fg = "#1E1E1E",bg = "#ECE8E7",padx=5)
+mainpage_loginbutton3.grid(column=7,row=0,sticky = E+W,padx=5)
 
 #row=1
 bannerimg = Image.open("./project/img/topic.png")
@@ -448,12 +564,14 @@ bannerlabel = Label(root, image = bannerimg).grid(column = 0, row= 1,columnspan=
 sofa1img = Image.open("./project/img/switch_game1.png")
 sofa1img = sofa1img.resize((220,290))
 sofa1img = ImageTk.PhotoImage(sofa1img)
-sofa1label = Button(root, image = sofa1img,command=lambda:info("星之卡比 豪華版 Wili","NT.0,846"))
+sofa1label = Button(root, image = sofa1img)
 sofa1label.grid(column = 0,row = 2,columnspan=2)
+
+
 sofa2img = Image.open("./project/img/PlayStation_game2.png")
 sofa2img = sofa2img.resize((220,290))
 sofa2img = ImageTk.PhotoImage(sofa2img)
-sofa2label = Button(root, image = sofa2img,command=lambda:info("霍格華滋的傳承","NT.0,329")).grid(column = 2,row = 2,columnspan=2)
+sofa2label = Button(root, image = sofa2img).grid(column = 2,row = 2,columnspan=2)
 
 sofa3img = Image.open("./project/img/switch_game2.png")
 sofa3img = sofa3img.resize((220,290))
@@ -466,7 +584,7 @@ sofa4img = ImageTk.PhotoImage(sofa4img)
 sofa4label = Label(root, image = sofa4img).grid(column = 6,row = 2,columnspan=2)
 
 #row=3
-productname1 = Label(root,font = ("Inter",11), text="星之卡比 豪華版 Wili", fg = "#000000",bg = "#ECE8E7")
+productname1 = Label(root,font = ("Inter",11),text="星之卡比 豪華版 Wili", fg = "#000000",bg = "#ECE8E7")
 productname1.grid(column=0,row=3,columnspan=2 ,padx=5)
 
 productname2 = Label(root,font = ("Inter",11), text="霍格華滋的傳承", fg = "#000000",bg = "#ECE8E7")
@@ -547,45 +665,26 @@ totallabel.grid(row = 5, column= 6,columnspan= 2, sticky = W+S)
 checkoutbutton = Button(root,font = ("Inter",10), text="結帳", fg = "#1E1E1E",bg = "#E7E2E2")
 checkoutbutton.grid(row=5, column = 7, sticky = E+S, padx = 5, pady =1 )
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 root.mainloop()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
