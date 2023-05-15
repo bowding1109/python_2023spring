@@ -19,46 +19,155 @@ account_name = ""
 account_password = ""
 account_email = ""
 
+
+total = 0,000
+
 point = 0
 
 def detailWindow1():
-    detailgameWindows = Toplevel(root)
-    detailgameWindows.title("KubeTech Shop")
-    detailgameWindows.geometry("300x500")
-    title = Label(detailgameWindows,text="詳細介紹")
-    title.grid(row=1,column=0)
-    sofa1img = Image.open("./project/img/switch_game1.png")
-    sofa1img = sofa1img.resize((220,290))
-    global tk_img
-    tk_img = ImageTk.PhotoImage(sofa1img)
-    titlelabel = Label(detailgameWindows, image = tk_img)
-    titlelabel.grid(row=0,column=0)
+    detail = Toplevel(root)
+    detail.title("KubeTech Shop")
+    detail.geometry("400x450")
+    detail_title = Label(detail,font = ("bold",20), text="詳細介紹", fg = "#000000",bg = "#ECE8E7")
+    detail_title.grid(column=0,row=0 )
 
-    detailgameWindows.mainloop()
+    detail_word = Label(detail,font = ("Inter",18),text = "主機平台:Switch" ,fg = "#000000",bg = "#ECE8E7")
+    detail_word.grid(column=0,row=1 ,padx=5,sticky = W)
+
+    detail_word2 = Label(detail,font = ("Inter",18),text = "遊戲類型:動作" ,fg = "#000000",bg = "#ECE8E7")
+    detail_word2.grid(column=0,row=2 ,padx=5,sticky = W)
+
+    detail_word3 = Label(detail,font = ("Inter",18),text = "遊戲人數:1~4人" ,fg = "#000000",bg = "#ECE8E7")
+    detail_word3.grid(column=0,row=3 ,padx=5,sticky = W)
+
+    detail_word4 = Label(detail,font = ("Inter",18),text = "發行公司:Nintendo" ,fg = "#000000",bg = "#ECE8E7")
+    detail_word4.grid(column=0,row=4 ,padx=5,sticky = W)
+
+    detail_word5 = Label(detail,font = ("Inter",18),text = "遊戲語別:中文" ,fg = "#000000",bg = "#ECE8E7")
+    detail_word5.grid(column=0,row=5 ,padx=5,sticky = W)
+
+    detail_word6 = Label(detail,font = ("Inter",18),text = "遊戲內容:卡比為了幫助宇宙飛船上的魔法洛亞而\n展開了冒險,途中會搜集到新道具並且支持\n四人遊玩" ,fg = "#000000",bg = "#ECE8E7")
+    detail_word6.grid(column=0,row=6,sticky = W)
+
+    detail_img= Image.open("./project/img/detail1.png")
+    detail_img = detail_img.resize((360,210))
+    detail_img = ImageTk.PhotoImage(detail_img)
+    detail_img_label = Label(detail, image = detail_img)
+    detail_img_label.grid(column = 0, row= 7 ,columnspan=8,sticky=W,padx = 5)
+    detail.mainloop()
 
 def detailWindow2():
-    detailgameWindows = Toplevel(root)
-    detailgameWindows.title("KubeTech Shop")
-    detailgameWindows.geometry("300x500")
-    title = Label(detailgameWindows,text="詳細介紹")
-    title.grid(row=1,column=0)
-    sofa1img = Image.open("./project/img/switch_game1.png")
-    sofa1img = sofa1img.resize((220,290))
-    global tk_img
-    tk_img = ImageTk.PhotoImage(sofa1img)
-    titlelabel = Label(detailgameWindows, image = tk_img)
-    titlelabel.grid(row=0,column=0)
+    detailB = Toplevel(root)
+    detailB.title("KubeTech Shop")
+    detailB.geometry("400x450")
+    detail2_title = Label(detailB,font = ("bold",20), text="詳細介紹", fg = "#000000",bg = "#ECE8E7")
+    detail2_title.grid(column=0,row=0 )
 
-    detailgameWindows.mainloop()
+    detail2_word = Label(detailB,font = ("Inter",18),text = "主機平台:PlayStation4" ,fg = "#000000",bg = "#ECE8E7")
+    detail2_word.grid(column=0,row=1 ,padx=5,sticky = W)
+
+    detail2_word2 = Label(detailB,font = ("Inter",18),text = "遊戲類型:角色扮演" ,fg = "#000000",bg = "#ECE8E7")
+    detail2_word2.grid(column=0,row=2 ,padx=5,sticky = W)
+
+    detail2_word3 = Label(detailB,font = ("Inter",18),text = "遊戲人數:1人" ,fg = "#000000",bg = "#ECE8E7")
+    detail2_word3.grid(column=0,row=3 ,padx=5,sticky = W)
+
+    detail2_word4 = Label(detailB,font = ("Inter",18),text = "發行公司:Warner Bros.Entertainment" ,fg = "#000000",bg = "#ECE8E7")
+    detail2_word4.grid(column=0,row=4 ,padx=5,sticky = W)
+
+    detail2_word5 = Label(detailB,font = ("Inter",18),text = "遊戲語別:中文" ,fg = "#000000",bg = "#ECE8E7")
+    detail2_word5.grid(column=0,row=5 ,padx=5,sticky = W)
+
+    detail2_word6 = Label(detailB,font = ("Inter",18),text = "遊戲內容:玩家將扮演到霍格華滋魔法與巫術學院\n的魔法學徒,學習基本魔法後可以自由在學院探索\n此外玩家將要培養自身魔法以及寵物來對抗敵人" ,fg = "#000000",bg = "#ECE8E7")
+    detail2_word6.grid(column=0,row=6,sticky = W)
+
+    detail2_img= Image.open("./project/img/detail2.png")
+    detail2_img = detail2_img.resize((360,210))
+    detail2_img = ImageTk.PhotoImage(detail2_img)
+    detail2_img_label = Label(detailB, image = detail2_img)
+    detail2_img_label.grid(column = 0, row= 7 ,columnspan=8,sticky=W,padx = 5)
+    detailB.mainloop()
+
+
+
+
+def detailWindow3():
+    detailC = Toplevel(root)
+    detailC.title("KubeTech Shop")
+    detailC.geometry("400x450")
+    detail3_title = Label(detailC,font = ("bold",20), text="詳細介紹", fg = "#000000",bg = "#ECE8E7")
+    detail3_title.grid(column=0,row=0 )
+
+    detail3_word = Label(detailC,font = ("Inter",18),text = "主機平台:Switch" ,fg = "#000000",bg = "#ECE8E7")
+    detail3_word.grid(column=0,row=1 ,padx=5,sticky = W)
+
+    detail3_word2 = Label(detailC,font = ("Inter",18),text = "遊戲類型:益智" ,fg = "#000000",bg = "#ECE8E7")
+    detail3_word2.grid(column=0,row=2 ,padx=5,sticky = W)
+
+    detail3_word3 = Label(detailC,font = ("Inter",18),text = "遊戲人數:4人" ,fg = "#000000",bg = "#ECE8E7")
+    detail3_word3.grid(column=0,row=3 ,padx=5,sticky = W)
+
+    detail3_word4 = Label(detailC,font = ("Inter",18),text = "發行公司:Nitendo" ,fg = "#000000",bg = "#ECE8E7")
+    detail3_word4.grid(column=0,row=4 ,padx=5,sticky = W)
+
+    detail3_word5 = Label(detailC,font = ("Inter",18),text = "遊戲語別:中文" ,fg = "#000000",bg = "#ECE8E7")
+    detail3_word5.grid(column=0,row=5 ,padx=5,sticky = W)
+
+    detail3_word6 = Label(detailC,font = ("Inter",18),text = "遊戲內容:本遊戲裡面共可以玩到51種不同的懷舊\n小遊戲 而且有些小遊戲可以支持四個人一起玩" ,fg = "#000000",bg = "#ECE8E7")
+    detail3_word6.grid(column=0,row=6,sticky = W)
+
+    detail3_img= Image.open("./project/img/detail3.png")
+    detail3_img = detail3_img.resize((360,210))
+    detail3_img = ImageTk.PhotoImage(detail3_img)
+    detail3_img_label = Label(detailC, image = detail3_img)
+    detail3_img_label.grid(column = 0, row= 7 ,columnspan=8,sticky=W,padx = 5)
+    detailC.mainloop()
+
+
+
+def detailWindow4():
+    detailD = Toplevel(root)
+    detailD.title("KubeTech Shop")
+    detailD.geometry("400x450")
+    detail3_title = Label(detailD,font = ("bold",20), text="詳細介紹", fg = "#000000",bg = "#ECE8E7")
+    detail3_title.grid(column=0,row=0 )
+
+    detail4_word = Label(detailD,font = ("Inter",18),text = "主機平台:Playstation4" ,fg = "#000000",bg = "#ECE8E7")
+    detail4_word.grid(column=0,row=1 ,padx=5,sticky = W)
+
+    detail4_word2 = Label(detailD,font = ("Inter",18),text = "遊戲類型:動作" ,fg = "#000000",bg = "#ECE8E7")
+    detail4_word2.grid(column=0,row=2 ,padx=5,sticky = W)
+
+    detail4_word3 = Label(detailD,font = ("Inter",18),text = "遊戲人數:1人" ,fg = "#000000",bg = "#ECE8E7")
+    detail4_word3.grid(column=0,row=3 ,padx=5,sticky = W)
+
+    detail4_word4 = Label(detailD,font = ("Inter",18),text = "發行公司:Sony Interactive" ,fg = "#000000",bg = "#ECE8E7")
+    detail4_word4.grid(column=0,row=4 ,padx=5,sticky = W)
+
+    detail4_word5 = Label(detailD,font = ("Inter",18),text = "遊戲語別:中文" ,fg = "#000000",bg = "#ECE8E7")
+    detail4_word5.grid(column=0,row=5 ,padx=5,sticky = W)
+
+    detail4_word6 = Label(detailD,font = ("Inter",18),text = "遊戲內容:你講扮演少年邁爾斯,你將體驗他是如何\n跟隨者他的老師成為獨當一面的蜘蛛俠" ,fg = "#000000",bg = "#ECE8E7")
+    detail4_word6.grid(column=0,row=6,sticky = W)
+
+    detail4_img= Image.open("./project/img/detail4.png")
+    detail4_img = detail4_img.resize((360,210))
+    detail4_img = ImageTk.PhotoImage(detail4_img)
+    detail4_img_label = Label(detailD, image = detail4_img)
+    detail4_img_label.grid(column = 0, row= 7 ,columnspan=8,sticky=W,padx = 5)
+    
+    detailD.mainloop()
 
 
 #加減功能
 def add(numlabel,pricelabel):
+    global total
     numlabel["text"] = int(numlabel["text"])+1
     price = int(pricelabel["text"].split(".")[1].replace(",","").strip())
     total = int(totalval.get().split(":")[1].replace("元","").strip())
     totalval.set("共消費: "+str(total+price)+" 元")
 def minus(numlabel,pricelabel):
+    global total
     if int(numlabel["text"])>0:
         numlabel["text"] = int(numlabel["text"])-1
         price = int(pricelabel["text"].split(".")[1].replace(",","").strip())
@@ -101,7 +210,7 @@ def showdetail():
 
     subtotal4 = int(productnumberlabel4["text"])*int(product4price["text"].split(".")[1].replace(",",""))
     table.insert("", index= "end" ,text=productname4["text"],values= [product1price["text"],productnumberlabel4["text"],subtotal4])
-
+    print(total)
     table.pack()
     detailWindow.mainloop()
 
@@ -218,8 +327,18 @@ def login_page():
 
 
 #信用卡付費
-def cashcard():
-    text = MIMEText("您好 親愛的顧客 這裡是kubshop:\n 這邊提醒您，您在我們這邊買了東西\n您使用的方法是信用卡付費\n請記得付費:)\nkubshop love you 3000")
+def cashcard(member):
+
+    if member == '普通':
+        tempContent = "您好 親愛的顧客 這裡是kubshop:\n 這邊提醒您，您在我們這邊買了東西\n您使用的方法是信用卡付費\n請記得付費:)\nkubshop love you 3000"
+    elif member == '白銀(每年5000元)':
+        tempContent = "您好 親愛的白金會員你好 這裡是kubshop:\n 這邊提醒您，您在我們這邊買了東西\n您使用的方法是信用卡付費\n請記得付費:)\nkubshop love you 3000"
+    elif member == '黃金(每年10000元)':
+        tempContent = "您好 親愛的黃金會員你好 這裡是kubshop:\n 這邊提醒您，您在我們這邊買了東西\n您使用的方法是信用卡付費\n請記得付費:)\nkubshop love you 3000"
+    elif member == '鑽石(每年30000元)':
+        tempContent = "您好 親愛的鑽石會員你好 這裡是kubshop:\n 這邊提醒您，您在我們這邊買了東西\n您使用的方法是信用卡付費\n請記得付費:)\nkubshop love you 3000"
+
+    text = MIMEText(tempContent)
 
     content = MIMEMultipart()#
     content["subject"] = "kubshop 通知"
@@ -250,8 +369,17 @@ def cashcard():
 
 
 #貨到付款
-def place():
-    text = MIMEText("您好 親愛的顧客 這裡是kubshop:\n 這邊提醒您，您在我們這邊買了東西\n您使用的方法是貨到付款\n請記得付費:)\nkubshop love you 3000")
+def place(member):
+    if member == '普通':
+        tempContent = "您好 親愛的顧客 這裡是kubshop:\n 這邊提醒您，您在我們這邊買了東西\n您使用的方法是信用卡付費\n請記得付費:)\nkubshop love you 3000"
+    elif member == '白銀(每年5000元)':
+        tempContent = "您好 親愛的白金會員你好 這裡是kubshop:\n 這邊提醒您，您在我們這邊買了東西\n您使用的方法是信用卡付費\n請記得付費:)\nkubshop love you 3000"
+    elif member == '黃金(每年10000元)':
+        tempContent = "您好 親愛的黃金會員你好 這裡是kubshop:\n 這邊提醒您，您在我們這邊買了東西\n您使用的方法是信用卡付費\n請記得付費:)\nkubshop love you 3000"
+    elif member == '鑽石(每年30000元)':
+        tempContent = "您好 親愛的鑽石會員 這裡是kubshop:\n 這邊提醒您，您在我們這邊買了東西\n您使用的方法是信用卡付費\n請記得付費:)\nkubshop love you 3000"
+
+    text = MIMEText(tempContent)
 
     content = MIMEMultipart()#
     content["subject"] = "kubshop 通知"
@@ -284,8 +412,16 @@ def place():
 
 
 #銀行付款
-def bank():
-    text = MIMEText("您好 親愛的顧客 這裡是kubshop:\n 這邊提醒您，您在我們這邊買了東西\n您使用的方法是銀行轉帳\n請記得付費:)\nkubshop love you 3000")
+def bank(member):
+    if member == '普通':
+        tempContent = "您好 親愛的顧客 這裡是kubshop:\n 這邊提醒您，您在我們這邊買了東西\n您使用的方法是信用卡付費\n請記得付費:)\nkubshop love you 3000"
+    elif member == '白銀(每年5000元)':
+        tempContent = "您好 親愛的白金會員你好 這裡是kubshop:\n 這邊提醒您，您在我們這邊買了東西\n您使用的方法是信用卡付費\n請記得付費:)\nkubshop love you 3000"
+    elif member == '黃金(每年10000元)':
+        tempContent = "您好 親愛的黃金會員你好 這裡是kubshop:\n 這邊提醒您，您在我們這邊買了東西\n您使用的方法是信用卡付費\n請記得付費:)\nkubshop love you 3000"
+    elif member == '鑽石(每年30000元)':
+        tempContent = "您好 親愛的鑽石 這裡是kubshop:\n 這邊提醒您，您在我們這邊買了東西\n您使用的方法是信用卡付費\n請記得付費:)\nkubshop love you 3000"
+    text = MIMEText(tempContent)
 
     content = MIMEMultipart()#
     content["subject"] = "kubshop 通知"
@@ -363,139 +499,28 @@ def gmailtest(account_name,account_password,account_email):
 def checkout():
     E1 = Toplevel(root)
     E1.title("KubeTech Shop1")
-    E1.geometry("350x250")
-
+    E1.geometry("350x350")
+# 會員功能
+    listbox = Listbox(E1,selectmode="extended")
+    listbox.insert(1,"普通")
+    listbox.insert(2,"白銀(每年5000元)")
+    listbox.insert(3,"黃金(每年10000元)")
+    listbox.insert(4,"鑽石(每年30000元)")
+    listbox.grid(column=0,row=0)
 #row0
     checkout_label = Label(E1,font = ("bold",20), text="請選擇付款方式", fg = "#000000",bg = "#ECE8E7")
-    checkout_label.grid(column=0,row=0)
+    checkout_label.grid(column=0,row=1)
     
 #row1
-    cashcard_button = Button(E1,font = ("Inter",18), text="信用卡付費", fg = "#1E1E1E",bg = "#ECE8E7",command = cashcard)
-    cashcard_button.grid(column=0,row=1,padx=5)
+    cashcard_button = Button(E1,font = ("Inter",18), text="信用卡付費", fg = "#1E1E1E",bg = "#ECE8E7",command = lambda:cashcard(listbox.get(listbox.curselection())))
+    cashcard_button.grid(column=0,row=2,padx=5)
 #row2
-    place_button = Button(E1,font = ("Inter",18), text="貨到付款", fg = "#1E1E1E",bg = "#ECE8E7",command = place)
-    place_button.grid(column=0,row=2,padx=5)
+    place_button = Button(E1,font = ("Inter",18), text="貨到付款", fg = "#1E1E1E",bg = "#ECE8E7",command = lambda:place(listbox.get(listbox.curselection())))
+    place_button.grid(column=0,row=3,padx=5)
 #row3
-    bank_button = Button(E1,font = ("Inter",18), text="銀行轉帳", fg = "#1E1E1E",bg = "#ECE8E7",command = bank)
-    bank_button.grid(column=0,row=3,padx=5)
+    bank_button = Button(E1,font = ("Inter",18), text="銀行轉帳", fg = "#1E1E1E",bg = "#ECE8E7",command = lambda:bank(listbox.get(listbox.curselection())))
+    bank_button.grid(column=0,row=4,padx=5)
     E1.mainloop()
-
-
-
-# #任天堂之熱門遊戲
-# def hotgame():
-#     D1 = Toplevel(root)
-#     D1.title("KubeTech Shop1")
-#     D1.geometry("650x550")
-
-#     nitendo_hotgame_topic1_button = Button(D1,font = ("Inter",18), text="熱門遊戲", fg = "#1E1E1E",bg = "#ECE8E7", width = 10,pady=2,command = hotgame)
-#     nitendo_hotgame_topic1_button.grid(column=1,row=0,sticky = E+W,padx=5)
-
-#     nitendo_hotgame_topic2_button = Button(D1,font = ("Inter",18), text="折價區", fg = "#1E1E1E",bg = "#ECE8E7", width = 5,pady=2)
-#     nitendo_hotgame_topic2_button.grid(column=2,row=0,sticky = E+W,padx=5)
-
-#     nitendo_hotgame_topic3_button = Button(D1,font = ("Inter",18), text="周邊商品", fg = "#1E1E1E",bg = "#ECE8E7", width = 5,pady=2,)
-#     nitendo_hotgame_topic3_button.grid(column=3,row=0,sticky = E+W,padx=5)
-
-#     nitendo_game1_img= Image.open("./project/img/switch_game4.png")
-#     nitendo_game1_img = nitendo_game1_img.resize((220,290))
-#     nitendo_game1_img = ImageTk.PhotoImage(nitendo_game1_img)
-#     nitendo_game1_label = Label(D1, image = nitendo_game1_img).grid(column = 0,row = 2,columnspan=2,sticky=W,padx = 5)
-
-#     nitendo_game2_img = Image.open("./project/img/switch_game5.png")
-#     nitendo_game2_img = nitendo_game2_img.resize((220,290))
-#     nitendo_game2_img = ImageTk.PhotoImage(nitendo_game2_img)
-#     nitendo_game2_label = Label(D1, image = nitendo_game2_img).grid(column = 2,row = 2,columnspan=2,sticky=W,padx = 5)
-
-#     nitendo_game3_img = Image.open("./project/img/switch_game6.png")
-#     nitendo_game3_img = nitendo_game3_img.resize((220,290))
-#     nitendo_game3_img = ImageTk.PhotoImage(nitendo_game3_img)
-#     nitendo_game3_label = Label(D1, image = nitendo_game3_img).grid(column = 4,row = 2,columnspan=2,sticky=W,padx = 5)
-
-#     nitendo_game4_img = Image.open("./project/img/switch_game7.png")
-#     nitendo_game4_img = nitendo_game4_img.resize((220,290))
-#     nitendo_game4_img = ImageTk.PhotoImage(nitendo_game4_img)
-#     nitendo_game4_label = Label(D1, image = nitendo_game4_img).grid(column = 6,row = 2,columnspan=2,sticky=W,padx = 5)
-
-#     #row=3
-#     nitendo_game1_name1 = Label(D1,font = ("Inter",11), text="馬力歐賽車8 豪華版", fg = "#000000",bg = "#ECE8E7")
-#     nitendo_game1_name1.grid(column=0,row=3,columnspan=2 ,padx=5)
-
-#     nitendo_game2_name2 = Label(D1,font = ("Inter",11), text="瑪利歐高爾夫 超級衝衝", fg = "#000000",bg = "#ECE8E7")
-#     nitendo_game2_name2.grid(column=2,row=3,columnspan=2,padx=5)
-
-#     nitendo_game3_name3 = Label(D1,font = ("Inter",11), text="瑪利歐兄弟U 豪華版", fg = "#000000",bg = "#ECE8E7")
-#     nitendo_game3_name3.grid(column=4,row=3,columnspan=2,padx=5)
-
-#     nitendo_game4_name4 = Label(D1,font = ("Inter",11), text="寶可夢 朱", fg = "#000000",bg = "#ECE8E7")
-#     nitendo_game4_name4.grid(column=6,row=3,columnspan=2,padx=5)
-
-#     #row=4
-#     nitendo_game1_price1 = Label(D1,font = ("Inter",10), text="NT.0,846", fg = "#000000",bg = "#ECE8E7")
-#     nitendo_game1_price1.grid(column=0,row=4 ,padx=5,sticky=W)
-
-#     nitendo_game2_price2 = Label(D1,font = ("Inter",10), text="NT.0,329", fg = "#000000",bg = "#ECE8E7")
-#     nitendo_game2_price2.grid(column=2,row=4 ,padx=5, sticky=W)
-
-#     nitendo_game3_price3 = Label(D1,font = ("Inter",10), text="NT.0,985", fg = "#000000",bg = "#ECE8E7")
-#     nitendo_game3_price3.grid(column=4,row=4 ,padx=5, sticky=W)
-
-#     nitendo_game4_price4 = Label(D1,font = ("Inter",10), text="NT.0,359", fg = "#000000",bg = "#ECE8E7")
-#     nitendo_game4_price4.grid(column=6,row=4 ,padx=5, sticky=W)
-
-#     nitendo_game1_number1 = Label(D1,width = 10,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
-#     nitendo_game1_number1.grid(column=1,row=4)
-
-#     nitendo_game2_number2 = Label(D1,width = 10,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
-#     nitendo_game2_number2.grid(column=3,row=4)
-
-#     nitendo_game3_number3 = Label(D1,width = 10,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
-#     nitendo_game3_number3.grid(column=5,row=4)
-
-#     nitendo_game4_number4 = Label(D1,width = 10,font = ("Inter",12), text="0", fg = "#000000",bg = "#ECE8E7")
-#     nitendo_game4_number4.grid(column=7,row=4)
-
-#     nitendo_game1_addbutton1 = Button(D1,font = ("Inter",10), text="+", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda: add(nitendo_game1_number1,nitendo_game1_price1))
-#     nitendo_game1_addbutton1.grid(column=1,row=4 ,sticky=E)
-
-#     nitendo_game2_addbutton2 = Button(D1,font = ("Inter",10), text="+", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda: add(nitendo_game2_number2,nitendo_game2_price2))
-#     nitendo_game2_addbutton2.grid(column=3,row=4 ,sticky=E)
-
-#     nitendo_game3_addbutton3 = Button(D1,font = ("Inter",10), text="+", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda: add( nitendo_game3_number3,nitendo_game3_price3))
-#     nitendo_game3_addbutton3.grid(column=5,row=4 ,sticky=E)
-
-#     nitendo_game4_addbutton4 = Button(D1,font = ("Inter",10), text="+", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda: add(nitendo_game4_number4,nitendo_game4_price4))
-#     nitendo_game4_addbutton4.grid(column=7,row=4 ,sticky=E)
-
-#     nitendo_game1_minusbutton1 = Button(D1,font = ("Inter",10), text="-", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda:minus(nitendo_game1_number1,nitendo_game1_price1))
-#     nitendo_game1_minusbutton1.grid(column=1,row=4 ,sticky=W)
-
-#     nitendo_game2_minusbutton2 = Button(D1,font = ("Inter",10), text="-", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda:minus(nitendo_game2_number2,nitendo_game2_price2))
-#     nitendo_game2_minusbutton2.grid(column=3,row=4 ,sticky=W)
-
-#     nitendo_game3_minusbutton3 = Button(D1,font = ("Inter",10), text="-", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda:minus(nitendo_game3_number3,nitendo_game3_price3))
-#     nitendo_game3_minusbutton3.grid(column=5,row=4 ,sticky=W)
-
-#     nitendo_game4_minusbutton4 = Button(D1,font = ("Inter",10), text="-", fg = "#1E1E1E",bg = "#E7E2E2",command = lambda:minus(nitendo_game4_number4,nitendo_game4_name4))
-#     nitendo_game4_minusbutton4.grid(column=7,row=4 ,sticky=W)
-
-
-#     ShoppingCartA = Image.open("/Users/silvia/Documents/Python_2022Autumn/class10/image/Shopping Cart.png")
-#     ShoppingCartA = ShoppingCartA.resize((30,30))
-#     ShoppingCartA = ImageTk.PhotoImage(ShoppingCartA)
-#     CartlabelA = Label(D1, image = ShoppingCartA,width = 30,height = 30)
-#     CartlabelA.grid(column = 5,row = 5,sticky=E+S)
-
-#     totalvalA = StringVar()
-#     totalvalA.set("共消費:0元")
-#     totallabelA = Label(D1,textvariable=totalval,font=("Inter",18),fg="#000000")
-#     totallabelA.grid(row = 5, column= 6,columnspan= 2, sticky = W+S)
-
-#     checkoutbuttonA = Button(D1,font = ("Inter",10), text="結帳", fg = "#1E1E1E",bg = "#E7E2E2")
-#     checkoutbuttonA.grid(row=5, column = 7, sticky = E+S, padx = 5, pady =1 )
-#     D1.mainloop()
-
-
 
 
 
@@ -539,7 +564,8 @@ def nitendo():
     nitendo_topic_img= Image.open("./project/img/topic2.png")
     nitendo_topic_img = nitendo_topic_img.resize((900,298))
     nitendo_topic_img = ImageTk.PhotoImage(nitendo_topic_img)
-    nitendo_topic_label = Label(A1, image = nitendo_topic_img).grid(column = 0, row= 1,columnspan=8,sticky=W,padx = 5)
+    nitendo_topic_label = Label(A1, image = nitendo_topic_img)
+    nitendo_topic_label.grid(column = 0, row= 1,columnspan=8,sticky=W,padx = 5)
 
     #row=2
     nitendo_game1_img= Image.open("./project/img/switch_game4.png")
@@ -850,20 +876,23 @@ sofa1label.grid(column = 0,row = 2,columnspan=2)
 sofa2img = Image.open("./project/img/PlayStation_game2.png")
 sofa2img = sofa2img.resize((220,290))
 sofa2img = ImageTk.PhotoImage(sofa2img)
-sofa2label = Button(root, image = sofa2img).grid(column = 2,row = 2,columnspan=2)
+sofa2label = Button(root, image = sofa2img,command = detailWindow2)
+sofa2label.grid(column = 2,row = 2,columnspan=2)
 
 sofa3img = Image.open("./project/img/switch_game2.png")
 sofa3img = sofa3img.resize((220,290))
 sofa3img = ImageTk.PhotoImage(sofa3img)
-sofa3label = Button(root, image = sofa3img, command= detailWindow2).grid(column = 4,row = 2,columnspan=2)
+sofa3label = Button(root, image = sofa3img, command= detailWindow3)
+sofa3label.grid(column = 4,row = 2,columnspan=2)
 
 sofa4img = Image.open("./project/img/PlayStation_game1.png")
 sofa4img = sofa4img.resize((220,290))
 sofa4img = ImageTk.PhotoImage(sofa4img)
-sofa4label = Label(root, image = sofa4img).grid(column = 6,row = 2,columnspan=2)
+sofa4label = Button(root, image = sofa4img,command = detailWindow4)
+sofa4label.grid(column = 6,row = 2,columnspan=2)
 
 #row=3
-productname1 = Label(root,font = ("Inter",11),text="星之卡比 豪華版 Wili", fg = "#000000",bg = "#ECE8E7")
+productname1 = Label(root,font = ("Inter",11),text="星之卡比 豪華版 Wii", fg = "#000000",bg = "#ECE8E7")
 productname1.grid(column=0,row=3,columnspan=2 ,padx=5)
 
 productname2 = Label(root,font = ("Inter",11), text="霍格華滋的傳承", fg = "#000000",bg = "#ECE8E7")
