@@ -20,7 +20,7 @@ account_password = ""
 account_email = ""
 
 
-total = 0,000
+total = 0
 
 point = 0
 
@@ -330,13 +330,13 @@ def login_page():
 def cashcard(member):
 
     if member == '普通':
-        tempContent = "您好 親愛的顧客 這裡是kubshop:\n 這邊提醒您，您在我們這邊買了東西\n您使用的方法是信用卡付費\n請記得付費:)\nkubshop love you 3000"
+        tempContent = "親愛的顧客 您好\n這裡是kubshop:\n感謝您光臨本店進行購物\n請確認您此次消費是使用信用卡付費\nkubshop期待您下次的光臨 love you 3000"
     elif member == '白銀(每年5000元)':
-        tempContent = "您好 親愛的白金會員你好 這裡是kubshop:\n 這邊提醒您，您在我們這邊買了東西\n您使用的方法是信用卡付費\n請記得付費:)\nkubshop love you 3000"
+        tempContent = "親愛的白金會員 您好\n這裡是kubshop:\n 感謝您光臨本店進行購物\n請確認您此次消費是使用信用卡付費打九五折\nkubshop期待您下次的光臨 love you 3000"
     elif member == '黃金(每年10000元)':
-        tempContent = "您好 親愛的黃金會員你好 這裡是kubshop:\n 這邊提醒您，您在我們這邊買了東西\n您使用的方法是信用卡付費\n請記得付費:)\nkubshop love you 3000"
+        tempContent = "親愛的黃金會員 您好\n這裡是kubshop:\n 感謝您光臨本店進行購物\n請確認您此次消費是使用信用卡付費打九折\nkubshop期待您下次的光臨 love you 3000"
     elif member == '鑽石(每年30000元)':
-        tempContent = "您好 親愛的鑽石會員你好 這裡是kubshop:\n 這邊提醒您，您在我們這邊買了東西\n您使用的方法是信用卡付費\n請記得付費:)\nkubshop love you 3000"
+        tempContent = "親愛的鑽石會員 您好\n這裡是kubshop:\n 感謝您光臨本店進行購物\n請確認您此次消費是使用信用卡付費打八五折\nkubshop期待您下次的光臨 love you 3000"
 
     text = MIMEText(tempContent)
 
@@ -371,13 +371,13 @@ def cashcard(member):
 #貨到付款
 def place(member):
     if member == '普通':
-        tempContent = "您好 親愛的顧客 這裡是kubshop:\n 這邊提醒您，您在我們這邊買了東西\n您使用的方法是信用卡付費\n請記得付費:)\nkubshop love you 3000"
+        tempContent = "親愛的顧客 您好\n這裡是kubshop:\n感謝您光臨本店進行購物\n請確認您此次消費是使用貨到付款\nkubshop期待您下次的光臨 love you 3000"
     elif member == '白銀(每年5000元)':
-        tempContent = "您好 親愛的白金會員你好 這裡是kubshop:\n 這邊提醒您，您在我們這邊買了東西\n您使用的方法是信用卡付費\n請記得付費:)\nkubshop love you 3000"
+        tempContent = "親愛的白金會員 您好\n這裡是kubshop:\n 感謝您光臨本店進行購物\n請確認您此次消費是使用貨到付款打九五折\nkubshop期待您下次的光臨 love you 3000"
     elif member == '黃金(每年10000元)':
-        tempContent = "您好 親愛的黃金會員你好 這裡是kubshop:\n 這邊提醒您，您在我們這邊買了東西\n您使用的方法是信用卡付費\n請記得付費:)\nkubshop love you 3000"
+        tempContent = "親愛的黃金會員 您好\n這裡是kubshop:\n 感謝您光臨本店進行購物\n請確認您此次消費是使用貨到付款打九折\nkubshop期待您下次的光臨 love you 3000"
     elif member == '鑽石(每年30000元)':
-        tempContent = "您好 親愛的鑽石會員 這裡是kubshop:\n 這邊提醒您，您在我們這邊買了東西\n您使用的方法是信用卡付費\n請記得付費:)\nkubshop love you 3000"
+        tempContent = "親愛的鑽石會員 您好\n這裡是kubshop:\n 感謝您光臨本店進行購物\n請確認您此次消費是使用貨到付款打八五折\nkubshop期待您下次的光臨 love you 3000"
 
     text = MIMEText(tempContent)
 
@@ -414,13 +414,13 @@ def place(member):
 #銀行付款
 def bank(member):
     if member == '普通':
-        tempContent = "您好 親愛的顧客 這裡是kubshop:\n 這邊提醒您，您在我們這邊買了東西\n您使用的方法是信用卡付費\n請記得付費:)\nkubshop love you 3000"
+        tempContent = "親愛的顧客 您好\n這裡是kubshop:\n感謝您光臨本店進行購物\n請確認您此次消費是利用銀行轉帳\nkubshop期待您下次的光臨 love you 3000"
     elif member == '白銀(每年5000元)':
-        tempContent = "您好 親愛的白金會員你好 這裡是kubshop:\n 這邊提醒您，您在我們這邊買了東西\n您使用的方法是信用卡付費\n請記得付費:)\nkubshop love you 3000"
+        tempContent = "親愛的白金會員 您好\n這裡是kubshop:\n 感謝您光臨本店進行購物\n請確認您此次消費是利用銀行轉帳打九五折\nkubshop期待您下次的光臨 love you 3000"
     elif member == '黃金(每年10000元)':
-        tempContent = "您好 親愛的黃金會員你好 這裡是kubshop:\n 這邊提醒您，您在我們這邊買了東西\n您使用的方法是信用卡付費\n請記得付費:)\nkubshop love you 3000"
-    elif member == '鑽石(每年30000元)':
-        tempContent = "您好 親愛的鑽石 這裡是kubshop:\n 這邊提醒您，您在我們這邊買了東西\n您使用的方法是信用卡付費\n請記得付費:)\nkubshop love you 3000"
+        tempContent = "親愛的黃金會員 您好\n這裡是kubshop:\n 感謝您光臨本店進行購物\n請確認您此次消費是利用銀行轉帳打九折\nkubshop期待您下次的光臨 love you 3000"
+    elif member == "鑽石(每年30000元)":
+        tempContent = "親愛的鑽石會員 您好\n這裡是kubshop:\n 感謝您光臨本店進行購物\n請確認您此次消費是利用銀行轉帳打八五折\nkubshop期待您下次的光臨 love you 3000"
     text = MIMEText(tempContent)
 
     content = MIMEMultipart()#
