@@ -328,7 +328,7 @@ def login_page():
 #信用卡付費
 def cashcard(member):
     global point
-    point = int(totalval.get().split(":")[1].replace("元","").strip())*0.01
+    point = int(totalval.get().split(":")[1].replace("元","").strip())*0.1
     if member == '普通':
         tempContent = "親愛的顧客 您好\n這裡是kubshop:\n感謝您光臨本店進行購物,這是你剛消費的金額"+str(int(totalval.get().split(":")[1].replace("元","").strip()))+"\n請確認您此次消費是使用信用卡付款\nkubshop期待您下次的光臨 love you 3000"
     elif member == '白銀(每年5000元)':
@@ -365,14 +365,14 @@ def cashcard(member):
         except Exception as e:
             print("Error message: ", e)
 
-    point = totalval.get().split(":")[1].replace("元","").strip()
+
 
 
 
 #貨到付款
 def place(member):
     global point
-    point = int(totalval.get().split(":")[1].replace("元","").strip())*0.01
+    point = int(totalval.get().split(":")[1].replace("元","").strip())*0.1
     if member == '普通':
         tempContent = "親愛的顧客 您好\n這裡是kubshop:\n感謝您光臨本店進行購物,這是你剛消費的金額"+str(int(totalval.get().split(":")[1].replace("元","").strip()))+"\n請確認您此次消費是貨到付款\nkubshop期待您下次的光臨 love you 3000"
     elif member == '白銀(每年5000元)':
@@ -409,7 +409,7 @@ def place(member):
             smtp.quit()
         except Exception as e:
             print("Error message: ", e)
-    point = totalval.get().split(":")[1].replace("元","").strip()
+
 
 
 
@@ -418,7 +418,7 @@ def place(member):
 #銀行付款
 def bank(member):
     global point
-    point = int(totalval.get().split(":")[1].replace("元","").strip())*0.01
+    point = int(totalval.get().split(":")[1].replace("元","").strip())*0.1
     if member == '普通':
         tempContent = "親愛的顧客 您好\n這裡是kubshop:\n感謝您光臨本店進行購物,這是你剛消費的金額"+str(int(totalval.get().split(":")[1].replace("元","").strip()))+"\n請確認您此次消費是利用銀行轉帳\nkubshop期待您下次的光臨 love you 3000"
     elif member == '白銀(每年5000元)':
@@ -455,19 +455,18 @@ def bank(member):
         except Exception as e:
             print("Error message: ", e)
 
-    point = totalval.get().split(":")[1].replace("元","").strip()
 
 def point_1(member):
     global point
-    point = point - int(totalval.get().split(":")[1].replace("元","").strip())
+    point = int(point) - int(totalval.get().split(":")[1].replace("元","").strip())
     if member == '普通':
-        tempContent = "親愛的顧客 您好\n這裡是kubshop:\n感謝您光臨本店進行購物,這是你剛消費的金額(注意點數折抵不能從中在獲取點數而且會員打折無效)"+str(int(totalval.get().split(":")[1].replace("元","").strip()))+"\n請確認您此次消費是利用點數折抵\nkubshop期待您下次的光臨 love you 3000"
+        tempContent = "親愛的顧客 您好\n這裡是kubshop:\n感謝您光臨本店進行購物,這是您剛消費的金額(由於此次利用點數消費故此筆消費不適用會員折扣及累積消費點數)"+str(int(totalval.get().split(":")[1].replace("元","").strip()))+"\n請確認您此次消費是利用點數折抵\nkubshop期待您下次的光臨 love you 3000"
     elif member == '白銀(每年5000元)':
-        tempContent = "親愛的白金會員 您好\n這裡是kubshop:\n感謝您光臨本店進行購物,這是你剛消費的金額(注意點數折抵不能從中在獲取點數而且會員打折無效)"+str(int(totalval.get().split(":")[1].replace("元","").strip()))+"\n請確認您此次消費是利用點數折抵\nkubshop期待您下次的光臨 love you 3000"
+        tempContent = "親愛的白金會員 您好\n這裡是kubshop:\n感謝您光臨本店進行購物,這是您剛消費的金額(由於此次利用點數消費故此筆消費不適用會員折扣及累積消費點數)"+str(int(totalval.get().split(":")[1].replace("元","").strip()))+"\n請確認您此次消費是利用點數折抵\nkubshop期待您下次的光臨 love you 3000"
     elif member == '黃金(每年10000元)':
-        tempContent = "親愛的黃金會員 您好\n這裡是kubshop:\n感謝您光臨本店進行購物,這是你剛消費的金額(注意點數折抵不能從中在獲取點數而且會員打折無效)"+str(int(totalval.get().split(":")[1].replace("元","").strip()))+"\n請確認您此次消費是利用點數折抵\nkubshop期待您下次的光臨 love you 3000"
+        tempContent = "親愛的黃金會員 您好\n這裡是kubshop:\n感謝您光臨本店進行購物,這是您剛消費的金額(由於此次利用點數消費故此筆消費不適用會員折扣及累積消費點數)"+str(int(totalval.get().split(":")[1].replace("元","").strip()))+"\n請確認您此次消費是利用點數折抵\nkubshop期待您下次的光臨 love you 3000"
     elif member == "鑽石(每年30000元)":
-        tempContent = "親愛的鑽石會員 您好\n這裡是kubshop:\n感謝您光臨本店進行購物,這是你剛消費的金額(注意點數折抵不能從中在獲取點數而且會員打折無效)"+str(int(totalval.get().split(":")[1].replace("元","").strip()))+"\n請確認您此次消費是利用點數折抵\nkubshop期待您下次的光臨 love you 3000"
+        tempContent = "親愛的鑽石會員 您好\n這裡是kubshop:\n感謝您光臨本店進行購物,這是您剛消費的金額(由於此次利用點數消費故此筆消費不適用會員折扣及累積消費點數)"+str(int(totalval.get().split(":")[1].replace("元","").strip()))+"\n請確認您此次消費是利用點數折抵\nkubshop期待您下次的光臨 love you 3000"
     text = MIMEText(tempContent)
 
     content = MIMEMultipart()#
@@ -907,7 +906,7 @@ mainpage_loginbutton.grid(column=5,row=0,sticky = E+W,padx=5)
 mainpage_loginbutton2 = Button(root,font = ("Inter",18), text="會員註冊", fg = "#1E1E1E",bg = "#ECE8E7",padx=5,command= register_page)
 mainpage_loginbutton2.grid(column=6,row=0,sticky = E+W,padx=5)
 
-mainpage_loginbutton3 = Button(root,font = ("Inter",18), text="會員升級", fg = "#1E1E1E",bg = "#ECE8E7",padx=5)
+mainpage_loginbutton3 = Button(root,font = ("Inter",18), text="會員資料", fg = "#1E1E1E",bg = "#ECE8E7",padx=5)
 mainpage_loginbutton3.grid(column=7,row=0,sticky = E+W,padx=5)
 
 #row=1
