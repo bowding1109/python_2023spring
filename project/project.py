@@ -210,7 +210,7 @@ def showdetail():
 
     subtotal4 = int(productnumberlabel4["text"])*int(product4price["text"].split(".")[1].replace(",",""))
     table.insert("", index= "end" ,text=productname4["text"],values= [product1price["text"],productnumberlabel4["text"],subtotal4])
-    print(total)
+
     table.pack()
     detailWindow.mainloop()
 
@@ -321,23 +321,22 @@ def login_page():
     #row5
     login_button = Button(D1,font = ("bold",25), text="登入", fg = "#1E1E1E",bg = "#ECE8E7", width = 5,pady=2,command =lambda:logIN(login_nameBox.get(),login_passwordBox.get()))
     login_button.grid(column=0,row=5,padx=5,sticky =E)
-
     D1.mainloop()
 
 
 
 #信用卡付費
 def cashcard(member):
-
+    global point
+    point = int(totalval.get().split(":")[1].replace("元","").strip())*0.01
     if member == '普通':
-        tempContent = "親愛的顧客 您好\n這裡是kubshop:\n感謝您光臨本店進行購物\n請確認您此次消費是使用信用卡付費\nkubshop期待您下次的光臨 love you 3000"
+        tempContent = "親愛的顧客 您好\n這裡是kubshop:\n感謝您光臨本店進行購物,這是你剛消費的金額"+str(int(totalval.get().split(":")[1].replace("元","").strip()))+"\n請確認您此次消費是使用信用卡付款\nkubshop期待您下次的光臨 love you 3000"
     elif member == '白銀(每年5000元)':
-        tempContent = "親愛的白金會員 您好\n這裡是kubshop:\n 感謝您光臨本店進行購物\n請確認您此次消費是使用信用卡付費打九五折\nkubshop期待您下次的光臨 love you 3000"
+        tempContent = "親愛的白金會員 您好\n這裡是kubshop:\n 感謝您光臨本店進行購物,這是你剛消費的金額,總價打九五折"+str(int(totalval.get().split(":")[1].replace("元","").strip())*0.95)+"\n請確認您此次消費是使用信用卡付款\nkubshop期待您下次的光臨 love you 3000"
     elif member == '黃金(每年10000元)':
-        tempContent = "親愛的黃金會員 您好\n這裡是kubshop:\n 感謝您光臨本店進行購物\n請確認您此次消費是使用信用卡付費打九折\nkubshop期待您下次的光臨 love you 3000"
+        tempContent = "親愛的黃金會員 您好\n這裡是kubshop:\n 感謝您光臨本店進行購物,這是你剛消費的金額,總價打九折"+str(int(totalval.get().split(":")[1].replace("元","").strip())*0.9)+"\n請確認您此次消費是使用信用卡付款\nkubshop期待您下次的光臨 love you 3000"
     elif member == '鑽石(每年30000元)':
-        tempContent = "親愛的鑽石會員 您好\n這裡是kubshop:\n 感謝您光臨本店進行購物\n請確認您此次消費是使用信用卡付費打八五折\nkubshop期待您下次的光臨 love you 3000"
-
+        tempContent = "親愛的鑽石會員 您好\n這裡是kubshop:\n 感謝您光臨本店進行購物,這是你剛消費的金額,總價打八五折"+str(int(totalval.get().split(":")[1].replace("元","").strip())*0.85)+"\n請確認您此次消費是使用信用卡付款\nkubshop期待您下次的光臨 love you 3000"
     text = MIMEText(tempContent)
 
     content = MIMEMultipart()#
@@ -365,19 +364,23 @@ def cashcard(member):
             smtp.quit()
         except Exception as e:
             print("Error message: ", e)
+
+    point = totalval.get().split(":")[1].replace("元","").strip()
 
 
 
 #貨到付款
 def place(member):
+    global point
+    point = int(totalval.get().split(":")[1].replace("元","").strip())*0.01
     if member == '普通':
-        tempContent = "親愛的顧客 您好\n這裡是kubshop:\n感謝您光臨本店進行購物\n請確認您此次消費是使用貨到付款\nkubshop期待您下次的光臨 love you 3000"
+        tempContent = "親愛的顧客 您好\n這裡是kubshop:\n感謝您光臨本店進行購物,這是你剛消費的金額"+str(int(totalval.get().split(":")[1].replace("元","").strip()))+"\n請確認您此次消費是貨到付款\nkubshop期待您下次的光臨 love you 3000"
     elif member == '白銀(每年5000元)':
-        tempContent = "親愛的白金會員 您好\n這裡是kubshop:\n 感謝您光臨本店進行購物\n請確認您此次消費是使用貨到付款打九五折\nkubshop期待您下次的光臨 love you 3000"
+        tempContent = "親愛的白金會員 您好\n這裡是kubshop:\n感謝您光臨本店進行購物,這是你剛消費的金額,總價打九五折"+str(int(totalval.get().split(":")[1].replace("元","").strip())*0.95)+"\n請確認您此次消費是貨到付款\nkubshop期待您下次的光臨 love you 3000"
     elif member == '黃金(每年10000元)':
-        tempContent = "親愛的黃金會員 您好\n這裡是kubshop:\n 感謝您光臨本店進行購物\n請確認您此次消費是使用貨到付款打九折\nkubshop期待您下次的光臨 love you 3000"
+        tempContent = "親愛的黃金會員 您好\n這裡是kubshop:\n感謝您光臨本店進行購物,這是你剛消費的金額,總價打九折"+str(int(totalval.get().split(":")[1].replace("元","").strip())*0.9)+"\n請確認您此次消費是貨到付款\nkubshop期待您下次的光臨 love you 3000"
     elif member == '鑽石(每年30000元)':
-        tempContent = "親愛的鑽石會員 您好\n這裡是kubshop:\n 感謝您光臨本店進行購物\n請確認您此次消費是使用貨到付款打八五折\nkubshop期待您下次的光臨 love you 3000"
+        tempContent = "親愛的鑽石會員 您好\n這裡是kubshop:\n感謝您光臨本店進行購物,這是你剛消費的金額,總價打八五折"+str(int(totalval.get().split(":")[1].replace("元","").strip())*0.85)+"\n請確認您此次消費是貨到付款\nkubshop期待您下次的光臨 love you 3000"
 
     text = MIMEText(tempContent)
 
@@ -406,6 +409,7 @@ def place(member):
             smtp.quit()
         except Exception as e:
             print("Error message: ", e)
+    point = totalval.get().split(":")[1].replace("元","").strip()
 
 
 
@@ -413,14 +417,16 @@ def place(member):
 
 #銀行付款
 def bank(member):
+    global point
+    point = int(totalval.get().split(":")[1].replace("元","").strip())*0.01
     if member == '普通':
-        tempContent = "親愛的顧客 您好\n這裡是kubshop:\n感謝您光臨本店進行購物\n請確認您此次消費是利用銀行轉帳\nkubshop期待您下次的光臨 love you 3000"
+        tempContent = "親愛的顧客 您好\n這裡是kubshop:\n感謝您光臨本店進行購物,這是你剛消費的金額"+str(int(totalval.get().split(":")[1].replace("元","").strip()))+"\n請確認您此次消費是利用銀行轉帳\nkubshop期待您下次的光臨 love you 3000"
     elif member == '白銀(每年5000元)':
-        tempContent = "親愛的白金會員 您好\n這裡是kubshop:\n 感謝您光臨本店進行購物\n請確認您此次消費是利用銀行轉帳打九五折\nkubshop期待您下次的光臨 love you 3000"
+        tempContent = "親愛的白金會員 您好\n這裡是kubshop:\n感謝您光臨本店進行購物,這是你剛消費的金額,總價打九五折"+str(int(totalval.get().split(":")[1].replace("元","").strip())*0.95)+"\n請確認您此次消費是利用銀行轉帳\nkubshop期待您下次的光臨 love you 3000"
     elif member == '黃金(每年10000元)':
-        tempContent = "親愛的黃金會員 您好\n這裡是kubshop:\n 感謝您光臨本店進行購物\n請確認您此次消費是利用銀行轉帳打九折\nkubshop期待您下次的光臨 love you 3000"
+        tempContent = "親愛的黃金會員 您好\n這裡是kubshop:\n感謝您光臨本店進行購物,這是你剛消費的金額,總價打九折"+str(int(totalval.get().split(":")[1].replace("元","").strip())*0.9)+"\n請確認您此次消費是利用銀行轉帳\nkubshop期待您下次的光臨 love you 3000"
     elif member == "鑽石(每年30000元)":
-        tempContent = "親愛的鑽石會員 您好\n這裡是kubshop:\n 感謝您光臨本店進行購物\n請確認您此次消費是利用銀行轉帳打八五折\nkubshop期待您下次的光臨 love you 3000"
+        tempContent = "親愛的鑽石會員 您好\n這裡是kubshop:\n感謝您光臨本店進行購物,這是你剛消費的金額,總價打八五折"+str(int(totalval.get().split(":")[1].replace("元","").strip())*0.85)+"\n請確認您此次消費是利用銀行轉帳\nkubshop期待您下次的光臨 love you 3000"
     text = MIMEText(tempContent)
 
     content = MIMEMultipart()#
@@ -449,7 +455,46 @@ def bank(member):
         except Exception as e:
             print("Error message: ", e)
 
+    point = totalval.get().split(":")[1].replace("元","").strip()
 
+def point_1(member):
+    global point
+    point = point - int(totalval.get().split(":")[1].replace("元","").strip())
+    if member == '普通':
+        tempContent = "親愛的顧客 您好\n這裡是kubshop:\n感謝您光臨本店進行購物,這是你剛消費的金額(注意點數折抵不能從中在獲取點數而且會員打折無效)"+str(int(totalval.get().split(":")[1].replace("元","").strip()))+"\n請確認您此次消費是利用點數折抵\nkubshop期待您下次的光臨 love you 3000"
+    elif member == '白銀(每年5000元)':
+        tempContent = "親愛的白金會員 您好\n這裡是kubshop:\n感謝您光臨本店進行購物,這是你剛消費的金額(注意點數折抵不能從中在獲取點數而且會員打折無效)"+str(int(totalval.get().split(":")[1].replace("元","").strip()))+"\n請確認您此次消費是利用點數折抵\nkubshop期待您下次的光臨 love you 3000"
+    elif member == '黃金(每年10000元)':
+        tempContent = "親愛的黃金會員 您好\n這裡是kubshop:\n感謝您光臨本店進行購物,這是你剛消費的金額(注意點數折抵不能從中在獲取點數而且會員打折無效)"+str(int(totalval.get().split(":")[1].replace("元","").strip()))+"\n請確認您此次消費是利用點數折抵\nkubshop期待您下次的光臨 love you 3000"
+    elif member == "鑽石(每年30000元)":
+        tempContent = "親愛的鑽石會員 您好\n這裡是kubshop:\n感謝您光臨本店進行購物,這是你剛消費的金額(注意點數折抵不能從中在獲取點數而且會員打折無效)"+str(int(totalval.get().split(":")[1].replace("元","").strip()))+"\n請確認您此次消費是利用點數折抵\nkubshop期待您下次的光臨 love you 3000"
+    text = MIMEText(tempContent)
+
+    content = MIMEMultipart()#
+    content["subject"] = "kubshop 通知"
+    content["from"] = "bowding99@gmail.com"
+    print(account_email)
+    content["to"] = "bowding99@gmail.com"
+
+    content.attach(text)
+
+
+    smtp = smtplib.SMTP(host="smtp.gmail.com", port="587")
+
+
+    with open("class5/password.txt","r") as f: 
+        mailToken = f.read()
+
+    with smtp: 
+        try:
+            smtp.ehlo()
+            smtp.starttls()
+            smtp.login("bowding99@gmail.com",mailToken)
+            smtp.send_message(content)
+            print("Email is Sended completely")
+            smtp.quit()
+        except Exception as e:
+            print("Error message: ", e)
 
 
 
@@ -497,6 +542,7 @@ def gmailtest(account_name,account_password,account_email):
 
 
 def checkout():
+    global point
     E1 = Toplevel(root)
     E1.title("KubeTech Shop1")
     E1.geometry("350x350")
@@ -507,6 +553,8 @@ def checkout():
     listbox.insert(3,"黃金(每年10000元)")
     listbox.insert(4,"鑽石(每年30000元)")
     listbox.grid(column=0,row=0)
+    point_view = Label(E1,font = ("bold",18), text = "您的點數:"+str(point),fg = "#000000",bg = "#ECE8E7")
+    point_view.grid(column=1,row=0)
 #row0
     checkout_label = Label(E1,font = ("bold",20), text="請選擇付款方式", fg = "#000000",bg = "#ECE8E7")
     checkout_label.grid(column=0,row=1)
@@ -520,6 +568,9 @@ def checkout():
 #row3
     bank_button = Button(E1,font = ("Inter",18), text="銀行轉帳", fg = "#1E1E1E",bg = "#ECE8E7",command = lambda:bank(listbox.get(listbox.curselection())))
     bank_button.grid(column=0,row=4,padx=5)
+
+    point_button = Button(E1,font = ("Inter",18), text="點數折抵", fg = "#1E1E1E",bg = "#ECE8E7",command = lambda:point_1(listbox.get(listbox.curselection())))
+    point_button.grid(column=0,row=5,padx=5)
     E1.mainloop()
 
 
